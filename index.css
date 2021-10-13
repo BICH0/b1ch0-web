@@ -55,13 +55,10 @@ h4{
   visibility: hidden;
   height: 0;
   position: relative;
-  top: -10px;
+  top: -20px;
   left: 15px;
   opacity: 0;
   transition: opacity 0.3s ease-out, max-height 0.7s;
-}
-.shields{
-  height: 5vw;
 }
 #servicios_b, #programacion_b, #sistemas_b{
   cursor: url(images/cursor/link.cur),pointer;
@@ -72,11 +69,12 @@ h4{
   top: -1.5vw;
   opacity: 0;
 }
-#programacion img{
-  margin: 10px 0px 10px 0px;
+.shields{
+  margin: 5px 0px 0px 0px;
   height: 20px;
+  height: 2vw;
 }
-#sistemas{
+div #sistemas{
   padding: 0;
   margin: 0;
 }
@@ -105,6 +103,17 @@ h4{
   .panel, .image{
     box-shadow: 5px 5px 10px #6c6c6c;
   }
+  .con_content{
+    top: -15px;
+    left: 10px;
+  }
+  .shields{
+    margin: 1vw 0 0 0;
+    height: 4vw;
+  }
+  #sistemas{
+    top: -25px;
+  }
 }
 @media only screen and (min-width: 450px) and (max-width: 900px){
   #servicios_b, #programacion_b, #sistemas_b{
@@ -126,6 +135,12 @@ h4{
   }
   .panel, .image{
     box-shadow: 5px 5px 10px #6c6c6c;
+  }
+  .shields{
+    height: 3vw;
+  }
+  #sistemas{
+    top: -25px;
   }
 }
 @media only screen and (min-width: 900px) and (max-width: 1500px){
