@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Web del B1CH0</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="shortcut icon" href="./images/logo.ico" type="image/ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body>
+	<div class="global">
+		<div id="main">
+			<div class="header dark-color">
+				<img src="images/menu.png" alt="menu icon" id="menu" onclick="menu_open('icon')" onmouseover="menu_over()" onmouseout="menu_out()"/>
+				<div class="cover" onclick="menu_open('cover')"></div>
+				<div id="home" onmouseenter="timer()" onmouseleave="exit()">
+				</div>
+				<div class="header-content" onmouseleave="menu_open('header')">
+					<a href="mailto:b1ch0@confugiradores.es"><div id="contacto" class="header-divs">
+						<p>Contacto</p>
+					</div></a>
+					<a href="https://github.com/BICH0"><div id="proyectos" class="header-divs">
+						<p>Proyectos</p>
+					</div></a>
+					<div id="network" class="header-divs">
+						<p>Network</p>
+						<ul>
+							<li style="background-color: #2e2e2e;"><a href="https://confugiradores.es">Confugiradores</a></li>
+							<li><a href="https://byeejasonn.confugiradores.es">ByeeJasonn</a></li>
+							<li><a href="https://bulgaro.confugiradores.es">Bulgaro</a></li>
+							<li><a href="https://icutum.confugiradores.es">Icutum</a></li>
+							<li><a href="https://nrtheriam.confugiradores.es">Nrtheriam</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="div">
+					<img id="dark-img" src="images/dark.png" alt="change theme button" onclick="dark()">
+			</div>
+		</div>
+		<div id='content'>
+			<div class="panel">
+				<h2>¿Quien soy?</h2>
+				<p>Mi nombre es Iván Martínez, nací el 14 de Julio de 2002 en Madrid, actualmente me puedo identificar como un Técnico de Sistemas Microinformaticos y Redes, tengo una gran pasión por la informática, Linux y la seguridad informática.</p>
+			</div>
+			<div id='foto1' class="image" onmouseover="image_resize(this)" onmouseout="image_resizeoff(this)">
+				<img src="images/photos/yo.png" alt="me">
+			</div>
+			<div id='foto2' class="image" onmouseover="image_resize(this)" onmouseout="image_resizeoff(this)">
+				<img src="images/photos/confu.png" alt="group photo">
+			</div>
+			<div class="panel">
+				<h2>Estudios</h2>
+				<p>Acabé de estudiar la ESO en el Gran Capitán de Madrid en 2018 y decidí empezar el Bachillerato Tecnologico en el mismo.
+					Después del primer año y no tener mucha motivación decidí estudiar un grado medio en el instituto Juan de la Cierva, en Madrid.
+					Actualmente he terminado el grado medio, en el cual he conocido grandes personas como mi profesor <a href="https://juanmacr.es">Juanma</a> y a todos mis compañeros de <a href="https://confugiradores.es">Confugiradores</a> que me han motivado a seguir esforzandome para lograr mis <a href="#metas">metas.</a></p>
+			</div>
+			<div class="panel">
+				<h2>Conocimientos y habilidades</h2>
+				<p>Actualmente tengo distintos conocimientos</p>
+				<h4 id="programacion_h" class="h4">Programación</h4>
+				<input type="checkbox" id="programacion_b" onmouseover="conocimientos_enter('programacion_h')" onmouseout="conocimientos_leave('programacion_h')" onclick="events(this, 'programacion')">
+				<p id="programacion" class="con_content">Actualmente manejo:<br/>
+					<img src="https://img.shields.io/static/v1?message=Python&logo=python&labelColor=3b3b3b&color=3776AB&logoColor=white&label=%20" alt="Python logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=Bash&logo=gnu%20bash&labelColor=3b3b3b&color=4EAA25&logoColor=white&label=%20" alt="Bash" class="shields"/> <br/>
+					Y estoy aprendiendo:<br/>
+					<img src="https://img.shields.io/static/v1?message=C&logo=c&labelColor=3b3b3b&color=A8B9CC&logoColor=white&label=%20" alt="C logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=JavaScript&logo=JavaScript&labelColor=3b3b3b&color=F7DF1E&logoColor=white&label=%20" alt="JavaScript logo" class="shields"/>
+				<h4 id="servicios_h" class="h4">Servicios</h4>
+				<input type="checkbox" id="servicios_b" onmouseover="conocimientos_enter('servicios_h')" onmouseout="conocimientos_leave('servicios_h')" onclick="events(this, 'servicios')">
+				<p id="servicios" class="con_content">He trabajado con los siguientes servicios:<br/>
+					-Samba <br/>
+					-Bind9 <br/>
+					-OpenSSH <br/>
+					-Apache2 <br/>
+					-OpenVPN <br/>
+					-Dovecot <br/>
+					-Postfix <br/>
+					-MySQL y MariaDB <br/></p>
+				<h4 id="sistemas_h" class="h4">Sistemas Operativos</h4>
+				<input type="checkbox" id="sistemas_b" onmouseover="conocimientos_enter('sistemas_h')" onmouseout="conocimientos_leave('sistemas_h')" onclick="events(this, 'sistemas')">
+				<div id="sistemas" class="con_content">
+					<img src="https://img.shields.io/static/v1?message=Debian&logo=debian&labelColor=3b3b3b&color=A81D33&logoColor=white&label=%20" alt="Debian logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=Ubuntu&logo=ubuntu&labelColor=3b3b3b&color=E95420&logoColor=white&label=%20" alt="Ubuntu logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=LinuxMint&logo=linuxmint&labelColor=3b3b3b&color=87CF3E&logoColor=white&label=%20" alt="Mint logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=Manjaro&logo=manjaro&labelColor=3b3b3b&color=35BF5C&logoColor=white&label=%20" alt="Manjaro logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=ArchLinux&logo=archlinux&labelColor=3b3b3b&color=1793D1&logoColor=white&label=%20" alt="Arch logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=Windows&logo=windows&labelColor=3b3b3b&color=0078D6&logoColor=white&label=%20" alt="Windows logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=Tails&logo=tails&labelColor=3b3b3b&color=56347C&logoColor=white&label=%20" alt="Tails logo" class="shields"/>
+					<img src="https://img.shields.io/static/v1?message=KaliLinux&logo=kalilinux&labelColor=3b3b3b&color=557C94&logoColor=white&label=%20" alt="Kali logo" class="shields"/>
+				</div>
+			</div>
+			<div id='foto3' class="image" onmouseover="image_resize(this)" onmouseout="image_resizeoff(this)">
+				<img src="images/photos/laptop.png" alt="Laptop">
+			</div>
+			<div id='foto4' class="image" onmouseover="image_resize(this)" onmouseout="image_resizeoff(this)">
+				<img src="images/photos/tshark.png" alt="Green text">
+			</div>
+			<div class="panel" id="metas">
+				<h2>Metas</h2>
+				<p>Actualmente quiero acabar de estudiar ASIR, certificarme en CCNA y estudiar una especialización en Ciberseguridad, así como aprender otros lenguajes de programacion.</p>
+			</div>
+		</div>
+		<div id="goup">
+			<a href="#main">
+				⇪
+			</a>
+		</div>
+		<div class="footer">
+			Página web de B1CH0
+		</div>
+	</div>
+	<script src="js/core.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
