@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pagina de Ivan Martinez</title>
+    <link rel="stylesheet" type="text/css" href="./main.css">
+    <link rel="stylesheet" type="text/css" href="../css/buttons.css">
+  </head>
+  <body>
+    <div id="loader"></div>
+    <div id="wrapper">
+      <div id="buttons">
+        <div id="languages">
+            <p id="lng_ES" class="clickable">ES</p><p id="lng_EN" class="clickable">EN</p>
+            <div id="lang-line"></div>
+        </div>
+        <img src="../resources/moon.png" alt="nightmode" id="drk_btn" class="clickable">
+      </div>
+      <div id="header">
+        <p>#include &lt;stdio.h&gt;<br/>
+        char owner[]="Iván Martínez";<br/>
+        void main() {<br/>
+        printf("Welcome to the webpage of %s.", &owner);<br/>
+        }</p>
+        <h1>Welcome to the webpage of Iván Martínez</h1>
+      </div>
+      <div id="terminal">
+        <div id="terminal-header">
+          <p>Terminal~</p>
+          <div id="button-container">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </div>
+        <div id="terminal-content">
+        </div>
+        <div id="prompt">
+          <span>anon@ivan-webpage:~$</span>
+          <input type="text" id="stdin">
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <p>Iván Martinez Alcoceba 2022</p>
+    </div>
+  <script type="text/javascript" src="../js/preload.js"></script>
+  <script type="text/javascript" src="js/window.js"></script>
+  <script type="text/javascript" src="js/commands.js"></script>
+  <script type="text/javascript" src="js/screen.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>

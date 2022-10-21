@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device - Webpage of Ivan</title>
+    <style>
+        h1{
+            width: 100%;
+            text-align: center;
+            font-size: 3rem;
+            position: relative;
+            margin: 100px 0 50px;
+        }
+        div{
+            display: flex;
+        }
+        .hidden{
+            display: none;
+        }
+        a{
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            flex : 50%;
+            margin: 0 10%;
+        }
+        p:not(#footer){
+            margin: 5px auto;
+            width: 90%;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px black;
+        }
+        img{
+            width: 30vw;
+            filter: drop-shadow(10px 10px #000000b0);
+            webkit-filter: drop-shadow(10px 10px #000000b0);
+            transition: filter 0.5s;
+        }
+        a:hover > img{
+            webkit-filter: drop-shadow(20px 20px #000000b0);
+            filter: drop-shadow(20px 20px #000000b0);
+        }
+        #footer{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+</head>
+<body>
+    <div id="loader"></div>
+    <div id="buttons">
+        <div id="languages">
+            <p id="lng_ES" class="clickable">ES</p>
+            <p id="lng_EN" class="clickable">EN</p>
+            <div id="lang-line"></div>
+        </div>
+        <img src="resources/moon.png" alt="nightmode" id="drk_btn" class="clickable">
+    </div>
+    <h1 class="visible">Wait while we redirect you to the most apropiate enviorment</h1>
+    <h1 class="hidden lang" id="title"></h1>
+    <div>
+        <a href="mobile/index.html" class="hidden"><img src="resources/svg/mobile.svg"><p id="usual" class="lang"></p></a>
+        <a href="computer/index.html" class="hidden"><img src="resources/svg/computer.svg"><p id="term" class="lang"></p></a>
+    </div>
+    <p id="footer">Ivan Martinez 2022</p>
+</body>
+<script src="js/preload.js"></script>
+<script>
+    const new_url = document.location.href.split("/").slice(0,-1)
+    function start(){
+        if ( window.innerWidth <= 600 && window.innerHeight <= 950 ){
+            console.log("phone");
+            document.location.href = document.location.href + "mobile/index.html";
+        }else{
+            Array.from(document.getElementsByClassName("hidden")).forEach( element => {
+                element.classList.toggle("hidden")
+            })
+            document.getElementsByClassName("visible")[0].classList.toggle("hidden")
+        }
+    }
+    function load_lang(){
+        const lang_es = ["¿Que prefieres?", "Si eliges este metodo verás una pagina de una manera usual", "Si eliges este metodo, verás una pagina web que emula un terminal, de esta forma podras ver la informacion de una manera mas friki"]
+        const lang_en = ["What do you prefer?", "If you select this method you will be redirected to a usual website.", "If you select this method you will be presented with a terminal where you can watch everything in a more techye way."]
+        globalThis.language = [lang_es, lang_en];
+        if (lang == 1){
+            lang_line.style.marginLeft = "61%";
+        }else{
+            lang_line.style.marginLeft = "11%";
+        }
+        let elements = [document.getElementById("title"), document.getElementById("usual"), document.getElementById("term")];
+        for (let x=0; x < elements.length; x++){
+            elements[x].classList.add("lang-pre");
+            setTimeout(function(){
+                elements[x].innerText = language[lang][x];
+                elements[x].classList.remove("lang-pre");
+            },400)
+        }
+    }
+</script>
+</html>

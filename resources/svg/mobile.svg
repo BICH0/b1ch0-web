@@ -1,0 +1,30 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="svg_4" x1="0" y1="0" x2="1" y2="0">
+   <stop stop-color="#000" offset="0"/>
+   <stop stop-color="#ffffff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="svg_13" x1="0" y1="0" x2="1" y2="0">
+   <stop stop-color="#444444" offset="0"/>
+   <stop stop-color="#bbbbbb" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <path fill="#b5b5b5" stroke="url(#svg_13)" opacity="undefined" d="m25,70c0,-8.15068 6.84932,-15 15,-15l720,0c8.15068,0 15,6.84932 15,15l0,470c0,8.15068 -6.84932,15 -15,15l-720,0c-8.15068,0 -15,-6.84932 -15,-15l0,-470z" id="svg_1" stroke-opacity="0"/>
+  <rect rx="15" id="svg_5" height="445.90486" width="650" y="93.96827" x="75" stroke-opacity="0" stroke="url(#svg_4)" fill="#e5e5e5"/>
+  <rect rx="15" fill="#333333" stroke="url(#svg_4)" x="75" y="521.07212" width="650" height="18.80944" id="svg_6" stroke-opacity="0"/>
+  <rect rx="15" fill="#333333" stroke="url(#svg_4)" x="75" y="68.97455" width="650" height="55" id="svg_3" stroke-opacity="0"/>
+  <rect fill="#ffffff" stroke="url(#svg_4)" x="88.41747" y="89.28575" width="66.48252" height="16" id="svg_8" rx="6" stroke-opacity="0"/>
+  <rect fill="#ffffff" stroke="url(#svg_4)" x="161.62146" y="89.28575" width="102.41902" height="16" id="svg_2" rx="6" stroke-opacity="0"/>
+  <rect fill="#333333" stroke="url(#svg_4)" x="75" y="108.02228" width="650" height="17.85704" id="svg_9" stroke-opacity="0"/>
+  <rect fill="#333333" stroke="url(#svg_4)" x="75" y="519.45198" width="650" height="10.23797" id="svg_10" stroke-opacity="0"/>
+  <rect stroke-opacity="0" id="svg_11" height="150" width="250" y="159.0489" x="129.99999" stroke="url(#gradbox_stroke)" fill="#ffffff"/>
+  <rect opacity="NaN" fill="#ffffff" stroke="url(#svg_4)" x="425.43173" y="96.90482" width="72" height="8.38093" id="svg_18" rx="6" stroke-opacity="0"/>
+  <rect opacity="NaN" fill="#ffffff" stroke="url(#svg_4)" x="520.67009" y="96.90482" width="72" height="8.38093" id="svg_21" rx="6" stroke-opacity="0"/>
+  <rect opacity="NaN" fill="#ffffff" stroke="url(#svg_4)" x="333.05051" y="96.90482" width="65" height="8.38093" id="svg_22" rx="6" stroke-opacity="0"/>
+  <rect stroke-opacity="0" id="svg_24" height="150" width="250" y="335.23987" x="129.99999" stroke="url(#gradbox_stroke)" fill="#ffffff"/>
+  <rect stroke-opacity="0" id="svg_25" height="150" width="250" y="159.0489" x="414.7627" stroke="url(#gradbox_stroke)" fill="#ffffff"/>
+  <rect stroke-opacity="0" id="svg_26" height="150" width="250" y="335.23987" x="414.7627" stroke="url(#gradbox_stroke)" fill="#ffffff"/>
+ </g>
+</svg>

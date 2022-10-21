@@ -1,0 +1,8 @@
+body{
+    background: rgba(0,0,0,0.5);
+    color: white;
+    margin: 0;
+    padding: 20px 10%;
+    font-family: hack;
+    backdrop-filter: blur(10px);
+}

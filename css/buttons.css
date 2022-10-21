@@ -1,0 +1,108 @@
+/* start of global */
+:root{
+    --main-color: #000;
+    --background:  #313131;
+    --text-shadow: #00000033;
+    --light-grey: #7d7d7db3;
+    --term: #000;
+    --text: #fff;
+    --shadow-hi: #000000b3;
+    --shadow-mid: #00000080;
+    --shadow-low: #00000033;
+    --header: #ffffff80;
+    --subheader: #3b3b3b;
+    --disabled-button: #694646;
+    --closebtn: #9a1212;
+    --maxbtn: #9a8c12;
+}
+*{
+    font-family: hack;
+    color: var(--text);
+    scrollbar-width: none;
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+h1{
+    text-shadow: 5px 5px black;
+}
+#loader{
+    opacity: 1;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    transition: .5s opacity;
+}
+body, #loader{
+    background-color: var(--background);
+}
+body, p, a, h1{
+    transition: .5s color, .5s background-color, .5s text-shadow, .5s opacity;           
+}
+.clickable:hover{
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8) !important;
+}
+
+.nightmode:not(body,#header > p,a){
+    color: black !important;
+    text-shadow: 2px 2px var(--text-shadow) !important;
+}
+#header > p.nightmode{
+    color: var(--shadow-hi);
+}
+body.nightmode{
+    background-color: white;
+}
+#lang-line.nightmode{
+    border-color: black;
+}
+#buttons{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+}
+#buttons > *{
+    margin: 4px;
+    filter: none;
+    /* border: 1px solid black; */
+    background-color: var(--shadow-low);
+    border-radius: 1rem;
+}
+#buttons img, #languages > p{
+    height: 2rem;
+    width: 2rem;
+}
+#buttons img{
+    padding: 7px 5px;
+}
+#languages > p{
+    line-height: 2rem;
+    text-align: center;
+    margin: 2px;
+    padding: 5px;
+    display: inline-block;
+    font-size: 1.3rem;
+}
+#languages{
+    position: relative;
+}
+#lang-line {
+    position: absolute;
+    border-bottom: 2px solid;
+    border-color: var(--text);
+    width: 30%;
+    top: calc(2rem + 4px);
+    margin-left: 61%;
+    box-shadow: 1px 1px 2px black;
+    transition: margin-left .5s, border-color .5s;
+}
+.lang-pre{
+    opacity: 0 !important;
+
+}
+.lang{
+    opacity: 1;
+}

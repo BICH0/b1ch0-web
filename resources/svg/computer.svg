@@ -1,0 +1,27 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="0" x2="1" y1="0" x1="0" id="svg_4">
+   <stop offset="0" stop-color="#000"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient y2="0" x2="1" y1="0" x1="0" id="svg_5">
+   <stop offset="0" stop-color="#000"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient y2="0" x2="1" y1="0" x1="0" id="svg_13">
+   <stop offset="0" stop-color="#444444"/>
+   <stop offset="1" stop-color="#bbbbbb"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <path stroke-opacity="0" id="svg_1" d="m25,70c0,-8.15068 6.84932,-15 15,-15l720,0c8.15068,0 15,6.84932 15,15l0,470c0,8.15068 -6.84932,15 -15,15l-720,0c-8.15068,0 -15,-6.84932 -15,-15l0,-470z" opacity="undefined" stroke="url(#svg_13)" fill="#b5b5b5"/>
+  <rect stroke-opacity="0" y="130" rx="15" id="svg_2" height="400" width="650" x="75" stroke="url(#svg_5)" fill="#444444"/>
+  <rect stroke-opacity="0" rx="15" id="svg_3" height="35" width="650" y="130" x="75" stroke="url(#svg_4)" fill="#191919"/>
+  <rect stroke-opacity="0" rx="6" id="svg_6" height="10" width="46" y="500.00001" x="95" stroke="url(#svg_4)" fill="#ffffff"/>
+  <rect stroke-opacity="0" rx="6" id="svg_8" height="10" width="74" y="500.00001" x="150.99999" stroke="url(#svg_4)" fill="#ffffff"/>
+  <ellipse ry="9" rx="9" id="svg_9" cy="147" cx="698" stroke-opacity="0" stroke="url(#svg_4)" fill="#ea6464"/>
+  <ellipse ry="9" rx="9" id="svg_11" cy="147" cx="672" stroke-opacity="0" stroke="url(#svg_4)" fill="#e5e863"/>
+  <ellipse ry="9" rx="9" id="svg_12" cy="146" cx="646" stroke-opacity="0" stroke="url(#svg_4)" fill="#79e863"/>
+ </g>
+</svg>
