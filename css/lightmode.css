@@ -1,0 +1,16 @@
+:root{
+    --background:  #dadada;
+    --light-grey: #7d7d7db3;
+    --term: #000;
+    --text: #000000;
+    --text2: #fff;
+    --shadow-opaque: #afafaf;
+    --shadow-hi: #97979782;
+    --shadow-mid: #0000008c;
+    --shadow-low: #00000033;
+    --header: #0000009d;
+    --subheader: #3b3b3b;
+    --disabled-button: #9c5e5e;
+    --closebtn: #b82626;
+    --maxbtn: #cabb33;
+}

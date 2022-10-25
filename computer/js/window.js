@@ -14,7 +14,7 @@ class window_creator {
     const new_win = document.createElement("div");
     new_win.id = this.name;
     new_win.classList = "subwin-invisible subwin-visible";
-    new_win.innerHTML = "<div class=\"subheader\"><p></p><div class=\"sub-btncontainer\"><div class=\"circle subcircle\"></div><div id=\"max_" + this.name + "\" class=\"circle subcircle maxbtn clickable\"></div><div id=\"cls_" + this.name + "\"class=\"circle subcircle closebtn clickable\"></div></div></div><div class=\"container\"></div>"
+    new_win.innerHTML = "<div class=\"subheader\" onmousedown=\"window_drag(event)\"><p></p><div class=\"sub-btncontainer\"><div class=\"circle subcircle\"></div><div id=\"max_" + this.name + "\" class=\"circle subcircle maxbtn clickable\"></div><div id=\"cls_" + this.name + "\"class=\"circle subcircle closebtn clickable\"></div></div></div><div class=\"container\"></div>"
     terminal.parentNode.appendChild(new_win);
   }
   open (type, arg1) {
@@ -40,8 +40,8 @@ class window_creator {
     this.container.appendChild(win_element);
   }
   close () {
+    this.container.innerHTML = "";
     this.DOM.classList.toggle("subwin-invisible");
     this.occupied = false;
-    this.container.innerHTML = "";
   }
 }

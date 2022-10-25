@@ -3,11 +3,11 @@ const command = new commands();
 const screen_state = new tscreen();
 var current_dir;
 const language = [lang_es, lang_en];
-var lang = 0;
 const history = [];
 var position = 0;
 var dir_stat = false;
-waiting = true;
+var waiting = true;
+var warnmsg = false;
 const terminal = document.getElementById("terminal");
 const terminal_header = document.getElementById("terminal-header");
 const stdout = document.getElementById("terminal-content");
@@ -39,7 +39,6 @@ function start() {
     let nwin = document.getElementById("window" + i);
     if (i != 0){
       let owin = document.getElementById("window" + (i - 1));
-      console.log(getComputedStyle(owin).top)
       nwin.style.top = getComputedStyle(owin).top.slice(0,-2) * (i * 1.2 ) + random + "px";
       nwin.style.right = getComputedStyle(owin).right.slice(0,-2) * (i * 0.5) + random + "px";
     }
@@ -47,8 +46,10 @@ function start() {
 };
 
 function openstorage(){
-  warnmsg = storage.getItem('warnmsg');
-  lang = storage.getItem("lang");
+  let storage_warn = storage.getItem('warnmsg');
+  if (storage_warn){
+    warnmsg = storage_warn;
+  }
 };
 
 function load_lang(){
@@ -65,32 +66,45 @@ function resize_term(){
 }
 
 function sortfiles(){
+  function analyze_folder(folder,predecesor=""){
+    for (let x=0; x<folder.length; x++) {
+      if (Array.isArray(folder[x])){
+        analyze_folder(folder[x],folder[0] + "/");
+      }
+      else{
+        if (x != 0){
+          organizer(predecesor + folder[0] + "/" + folder[x]);
+        }
+      }
+    }
+  }
+  function organizer(file){
+    switch (file.split(".")[1]) {
+      case "md":
+      case "txt":
+        tree_files.push(file);
+      break;
+      case "html":
+      case "git":
+        tree_html.push(file);
+      break;
+    }
+  }
   webpage_sections.forEach( file => {
-      file.forEach( file2 => {
-        if (file[1]){
-          nfile = file[0] + "/" + file2;
-        }else{
-          nfile = file2;
-        }
-        switch (file2.split(".")[1]) {
-          case "md":
-          case "txt":
-            tree_files.push(nfile);
-          break;
-          case "html":
-          case "git":
-            tree_html.push(nfile);
-          break;
-        }
-      })
+    if (Array.isArray(file)){
+      analyze_folder(file);
+    }
+    else{
+      organizer(file);
+    }
   })
 };
 
-function height_check(lines) {
-  stdout.scrollTop = stdout.scrollHeight;
-  if (font_size.slice(0,-2) * 1 + stdout.offsetHeight - 10 >= win_height){
-    stdout.style.height = win_height - 5 + "px";
+function height_check(lines=1) {
+  if (font_size.slice(0,-2) * lines + stdout.offsetHeight - 10 >= win_height){
+    stdout.style.height = win_height - 8 + "px";
   }
+  stdout.scrollTop = stdout.scrollHeight;
 };
 function close_win(self) {
   open_windows[self.slice(-1)].close();
@@ -99,9 +113,52 @@ function close_win(self) {
 async function write_value(command) {
   stdin.value = "";
   for (let x=0; x<command.length; x++){
-    await sleep(70);
+    await sleep(30);
     stdin.value += command[x];
   }
+}
+
+function window_drag(event){
+  let target = event.target.parentNode;
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  target.onmousedown = dragDown;
+  function dragDown(event){
+    event = event || window.event;
+    event.preventDefault();
+    pos3 = event.clientX;
+    pos4 = event.clientY;
+    document.onmouseup = dragEnd;
+    document.onmousemove = dragMove;
+    document.onmouse = dragEnd;
+  }
+  function dragEnd(event){
+    if (target.offsetTop < 0){
+      target.style.top = "0";
+    }else if ((target.offsetTop + target.offsetHeight) - 200 > window.innerHeight){
+      target.style.top =  window.innerHeight - target.offsetHeight + "px";
+    }
+
+    if (target.offsetLeft < -200){
+      target.style.left =  "0";
+    }
+    else if ((target.offsetLeft + target.offsetWidth) - 200 > window.innerWidth){
+      target.style.left =  window.innerWidth - target.offsetWidth + "px";
+    }
+    document.onmouseup = "";
+    document.onmousemove = "";
+  }
+  function dragMove(event){
+    event = event || window.event;
+    event.preventDefault();
+    pos1 = pos3 - event.clientX;
+    pos2 = pos4 - event.clientY;
+    pos3 = event.clientX;
+    pos4 = event.clientY;
+    target.style.top = (target.offsetTop - pos2) + "px";
+    target.style.left = (target.offsetLeft - pos1) + "px";
+  };
+  console.log(pos1 + "   " + pos2)
+
 }
 
 window.addEventListener('resize', function(event){

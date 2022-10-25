@@ -1,17 +1,10 @@
-body{
-  overflow: hidden;
-  margin: 0;
-  height: 100vh;
-}
-body *:hover{
-  cursor: default;
-}
 #wrapper{
   padding: 5px 50px 20px 50px;
   position: relative;
 }
 #terminal-header, .subheader{
   border-radius: .2rem .2rem 0 0;
+  color: var(--text2);
 }
 #terminal, .subwin-visible{
   border-radius: .2rem;
@@ -28,6 +21,9 @@ body *:hover{
   top: 15px;
   left: 20px;
   text-align: center;
+}
+#terminal *{
+  color: var(--text2);
 }
 #terminal{
   height: 70vh;
@@ -51,7 +47,7 @@ body *:hover{
   position: absolute;
   display: inline;
   margin: 0;
-  left: 5px;
+  left: 10px;
   margin-top: 4px;
 }
 #button-container{
@@ -64,7 +60,7 @@ body *:hover{
   width: 14px;
   background: var(--disabled-button);
   display: inline-block;
-  margin: 6px 2px 6px 0px;
+  margin: 6px 1px 6px 0px;
 }
 #terminal-content{
   width: calc(100% - 10px);
@@ -101,6 +97,7 @@ body *:hover{
   height: 1rem;
 }
 .subheader p{
+  color: var(--text2);
   margin: 0 10px;
   line-height: 22px;
   display: block;
@@ -111,15 +108,18 @@ body *:hover{
   background: var(--subheader);
   height: 22px;
 }
+.subheader:hover, .subheader *:not(.sub-btncontainer, .subcircle):hover{
+  cursor: move;
+}
 .sub-btncontainer{
   position: absolute;
   right: 5px;
   display: block;
 }
 .subcircle{
-  height: 10px;
-  width: 10px;
-  margin: 6px 2px;
+  height: 12px;
+  width: 12px;
+  margin: 4.5px 4px;
 }
 .closebtn{
   background: var(--closebtn);
@@ -128,7 +128,7 @@ body *:hover{
   background: var(--maxbtn);
 }
 .subwin-visible{
-  transition: height .5s, width .5s;
+  transition: height .2s, width .2s, opacity .5s .3s;
   height: 60vh;
   width: 40vw;
   z-index: 2;
@@ -139,9 +139,15 @@ body *:hover{
   box-shadow: 4px 4px 10px var(--shadow-mid);
 }
 .subwin-invisible, .subwin-invisible *{
+  transition: height .2s .5s, width .2s .5s, opacity .5s;
+  opacity: 0;
+}
+.subwin-invisible .sub-btncontainer * {
+  display: none;
+}
+.subwin-invisible{
   height: 0;
   width: 0;
-  opacity: 0;
 }
 .subwin-visible > .container{
   height: calc(100% - 22px);
@@ -156,17 +162,8 @@ body *:hover{
   height: 100vh;
   position: absolute;
   top: 0 !important;
-  left: 0;
+  left: 0 !important;
 }
 .circle:not(.clickable):hover{
   cursor: not-allowed;
-}
-#footer{
-  right: 20px;
-  position: absolute;
-  bottom: 10px;
-}
-#footer p{
-  margin: 0;
-  display: inline-block;
 }

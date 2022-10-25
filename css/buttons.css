@@ -1,30 +1,33 @@
 /* start of global */
-:root{
-    --main-color: #000;
-    --background:  #313131;
-    --text-shadow: #00000033;
-    --light-grey: #7d7d7db3;
-    --term: #000;
-    --text: #fff;
-    --shadow-hi: #000000b3;
-    --shadow-mid: #00000080;
-    --shadow-low: #00000033;
-    --header: #ffffff80;
-    --subheader: #3b3b3b;
-    --disabled-button: #694646;
-    --closebtn: #9a1212;
-    --maxbtn: #9a8c12;
+@font-face {
+    font-family: hack;
+    src: url(../resources/fonts/hack/Hack-Regular.ttf);
 }
 *{
     font-family: hack;
     color: var(--text);
     scrollbar-width: none;
+    transition: .5s color, .5s background-color, .5s text-shadow, .5s opacity;
+}
+a{
+    text-decoration: none;
+}
+body{
+    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+}
+body *:hover{
+    cursor: default;
+}
+body .clickable:hover, body a:hover, body a *:hover{
+    cursor: pointer;
 }
 ::-webkit-scrollbar{
     width: 0px;
 }
 h1{
-    text-shadow: 5px 5px black;
+    text-shadow: 5px 5px var(--shadow-hi);
 }
 #loader{
     opacity: 1;
@@ -32,42 +35,27 @@ h1{
     height: 100vh;
     width: 100vw;
     z-index: 100;
-    transition: .5s opacity;
 }
 body, #loader{
     background-color: var(--background);
 }
-body, p, a, h1{
-    transition: .5s color, .5s background-color, .5s text-shadow, .5s opacity;           
-}
-.clickable:hover{
-    cursor: pointer;
+.clickable:hover, a:hover, a *:hover{
+    transition: text-shadow .2s;
     text-shadow: 1px 1px 2px rgba(255,255,255,0.8) !important;
 }
-
-.nightmode:not(body,#header > p,a){
-    color: black !important;
-    text-shadow: 2px 2px var(--text-shadow) !important;
-}
-#header > p.nightmode{
-    color: var(--shadow-hi);
-}
-body.nightmode{
-    background-color: white;
-}
-#lang-line.nightmode{
-    border-color: black;
+#languages p:hover{
+    text-shadow: 1px 1px 1.5px var(--text) !important;
 }
 #buttons{
     position: absolute;
     right: 10px;
     top: 10px;
     z-index: 2;
+    display: flex;
 }
 #buttons > *{
     margin: 4px;
     filter: none;
-    /* border: 1px solid black; */
     background-color: var(--shadow-low);
     border-radius: 1rem;
 }
@@ -105,4 +93,13 @@ body.nightmode{
 }
 .lang{
     opacity: 1;
+}
+#footer{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+#footer p{
+    margin: 0;
+    display: inline-block;
 }

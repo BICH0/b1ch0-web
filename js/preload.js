@@ -2,13 +2,15 @@ const lang_line = document.getElementById("lang-line");
 const storage = window.localStorage;
 const loader = document.getElementById("loader");
 var lang = 0;
+var night = true;
 
 window.onload = async function(){
-    lang = storage.getItem("lang");
+    let storage_lang = storage.getItem('lang');
+    if (storage_lang){
+      lang = storage_lang;
+    }
     await load_lang();
-    console.log("lang")
     start();
-    console.log("start")
     setTimeout(function(){
         loader.style.opacity = "0";
         setTimeout(function(){
@@ -18,10 +20,16 @@ window.onload = async function(){
 }
 
 function darkmode(){
-    let dark_items = Array.prototype.slice.call(document.querySelectorAll("body,p:not(#terminal *),a,h1,#lang-line"));
-        dark_items.forEach(element => {
-            element.classList.toggle("nightmode");
-        })
+    let cssfile =  document.head.getElementsByTagName("link")[0];
+    let csshref = cssfile.href.split("/");
+    csshref.pop();
+    if (night){
+        night = false;
+        cssfile.href = csshref.join("/") + "/lightmode.css";
+    }else{
+        night = true;
+        cssfile.href = csshref.join("/") + "/nightmode.css";
+    }
 }
 
 function devices_click(event){

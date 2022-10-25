@@ -81,7 +81,7 @@ class commands {
                 document.getElementById("window" + value).classList.toggle("subwin-max");
               }
               window_target.close();
-              this.return(value + " terminated.");
+              this.return("Task " + value + " terminated.");
               break;
             }
           }
@@ -181,7 +181,7 @@ class commands {
   cat (file) {
     file = this.route(file);
       if(1 == 1){
-        stdout.innerHTML += "<p><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail:</span>ivan@confugiradores.es</p>";
+        stdout.innerHTML += "<a href='mailto:ivan@confugiradores.es'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a></br><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a></br><a href='https://discord.gg/user/b1ch0.sh#9734'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Discord: </span>b1ch0.sh#9734</a></br><a href='https://discord.gg/user/b1ch0.sh#9734'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Discord: </span>b1ch0.sh#9734</a>";
       }
       else{
         this.return("cat: " + file + language[lang][6]);
@@ -189,6 +189,6 @@ class commands {
   }
   return (message){
     stdout.innerHTML += "<p>" + message + "</p>";
-    height_check();
+    height_check(2);
   }
 }

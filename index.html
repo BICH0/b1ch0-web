@@ -20,17 +20,16 @@
             display: none;
         }
         a{
-            text-decoration: none;
             display: inline-block;
             position: relative;
             flex : 50%;
             margin: 0 10%;
         }
-        p:not(#footer){
+        p:not(#footer p, #languages p){
             margin: 5px auto;
             width: 90%;
             font-size: 1.3rem;
-            text-shadow: 2px 2px black;
+            text-shadow: 2px 2px var(--shadow-opaque);
         }
         img{
             width: 30vw;
@@ -42,13 +41,8 @@
             webkit-filter: drop-shadow(20px 20px #000000b0);
             filter: drop-shadow(20px 20px #000000b0);
         }
-        #footer{
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            margin: 0;
-        }
     </style>
+    <link rel="stylesheet" type="text/css" href="css/nightmode.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
 </head>
 <body>
@@ -67,7 +61,9 @@
         <a href="mobile/index.html" class="hidden"><img src="resources/svg/mobile.svg"><p id="usual" class="lang"></p></a>
         <a href="computer/index.html" class="hidden"><img src="resources/svg/computer.svg"><p id="term" class="lang"></p></a>
     </div>
-    <p id="footer">Ivan Martinez 2022</p>
+    <div id="footer">
+        <p>Ivan Martinez Alcoceba 2022</p>
+    </div>
 </body>
 <script src="js/preload.js"></script>
 <script>
