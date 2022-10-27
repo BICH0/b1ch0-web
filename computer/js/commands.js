@@ -7,9 +7,11 @@ var lang_en=["<p>&gt;&gt;Welcome, this webpage is made in a shell-like format, i
 class commands {
   send (cm_content){
     cm_content = cm_content.split(" ");
-    const cm = cm_content[0];
-    const value = cm_content[1];
+    const cm = cm_content.shift();
+    const value = cm_content;
     this.handle(cm, value);
+    console.log(cm)
+    console.log(value)
   }
   handle (cm,value) {
     stdin.value = "";
@@ -56,7 +58,7 @@ class commands {
           }
         break;
         case "cat":
-          value = value.split("/");
+          value = value[0].split("/");
           value.shift();
           value = value.join("/");
           if (tree_files.includes(value)){
@@ -71,6 +73,13 @@ class commands {
         break;
         case "tree":
           this.return(screen_state.dirtree);
+        break;
+        case "ls":
+          console.log(value)
+          let args = value.split(" ");
+          args.forEach(arg=>{
+            console.log(arg);
+          })
         break;
         case "kill":
           if ((value >= 0 && value <= maxwinds)){
@@ -112,7 +121,7 @@ class commands {
           this.return("fg: " + language[lang][6])
         break;
         case "lang":
-          value = value.toLowerCase();
+          value = value[0].toLowerCase();
           switch (value){
             case "es":
               lang = 0;
