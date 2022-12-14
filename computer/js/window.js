@@ -28,7 +28,7 @@ class window_creator {
         this.title.innerHTML = arg1;
         this.container.appendChild(win_element)
         win_element.addEventListener("load", function(){
-          csslink.href = "iframe.css";
+          csslink.href = "../git/iframe.css";
           csslink.rel = "stylesheet";
           csslink.type = "text/css";
           win_element.contentWindow.document.head.appendChild(csslink);

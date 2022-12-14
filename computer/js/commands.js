@@ -1,8 +1,8 @@
 var value;
 var wrong_command = 0;
 var lang_es=["<p>&gt;&gt;Bienvenido, esta pagina web esta hecha emulando un terminal, si no eres familiar con este entorno puedes hacer click en los distintos directorios.<br/>Si quieres ocultar este mensaje usa &quot;disable start&quot;.</p>","Mensaje de inicio desactivado","Mensaje de inicio activado","no es un argumento valido.",": No existe el fichero o el directorio","failed: No existe el proceso","no current job","Idioma cambiado a ES","no se puede acceder al directorio", "no se puede eliminar el directorio o archivo","No hay ventanas disponibles.","Orden no encontrada",
-"¿Quizas quieres una interfaz mas sencilla?"]
-var lang_en=["<p>&gt;&gt;Welcome, this webpage is made in a shell-like format, if you are not familiar with this enviorment you can click where you want to go.<br/>If you want to hide this message use &quot;disable start&quot;.</p>","Start message disabled","Start message enabled","is not a valid argument.",": No such file or directory.","failed: Process doesn't exist","no current job","Language changed to EN","Permission denied","cannot be removed: Permission denied","No windows available.","Command not found.","Maybe you want a more friendly ui?"]
+"¿Quizas quieres una interfaz mas sencilla?","error: los argumentos han sido deshabilitados para esta función."]
+var lang_en=["<p>&gt;&gt;Welcome, this webpage is made in a shell-like format, if you are not familiar with this enviorment you can click where you want to go.<br/>If you want to hide this message use &quot;disable start&quot;.</p>","Start message disabled","Start message enabled","is not a valid argument.",": No such file or directory.","failed: Process doesn't exist","no current job","Language changed to EN","Permission denied","cannot be removed: Permission denied","No windows available.","Command not found.","Maybe you want a more friendly ui?","error: arguments have been disabled for this function."]
 
 class commands {
   send (cm_content){
@@ -10,8 +10,6 @@ class commands {
     const cm = cm_content.shift();
     const value = cm_content;
     this.handle(cm, value);
-    console.log(cm)
-    console.log(value)
   }
   handle (cm,value) {
     stdin.value = "";
@@ -57,6 +55,14 @@ class commands {
             this.return(language[lang][2]);
           }
         break;
+        case "date":
+          if (value.length != 0){
+            this.return(language[lang][13])
+            break;
+          }
+          let date = new Date();
+          this.return(date.toString().split("(")[0])
+        break;
         case "cat":
           value = value[0].split("/");
           value.shift();
@@ -68,18 +74,87 @@ class commands {
           }
         break;
         case "clear":
+          if (value.length != 0){
+            this.return(language[lang][13])
+            break;
+          }
           stdout.innerHTML = "</br>";
           stdout.style.height = "";
         break;
         case "tree":
+          if (value.length != 0){
+            this.return(language[lang][13])
+            break;
+          }
           this.return(screen_state.dirtree);
         break;
         case "ls":
-          console.log(value)
-          let args = value.split(" ");
-          args.forEach(arg=>{
-            console.log(arg);
+          let ls_result, recursive, format, all, dirs, parents;
+          dirs = parents = [];
+          ls_result = recursive = format = all = "";
+          value.forEach(arg=>{
+            if (arg.slice(0,1) == "-"){
+              arg.slice(1,).split("").forEach(param => {
+                console.log(param)
+                switch (param) {
+                  case "l":
+                    format = "-rw-r--r-- 1 ivan ivan    " + Math.trunc((Math.random()+0.2)/3*100) + " may 25 06:30 ";    
+                    break;
+                  case "R":
+                    recursive = true;
+                    break;
+                  case "a":
+                    this.return("<p>.</p><br/><p>..</p>");
+                    break;
+                  case "A":
+                    let aall = true;
+                  break;
+                }
+              })
+            }else{
+              let file = arg.split("/")[arg.split("/").length - 1];
+              console.log(arg.split("/"))
+              if (arg.slice(0,2) == ".."){
+                this.return(language[lang][8])
+              }
+            }
           })
+          console.log("Format: " + format)
+          function dirsgobrr(){
+            dirs.forEach( dir => {
+              dirs.shift()
+              parents += [dir[0]];
+              loopthru(dir, parents[dir.index]);
+            })
+          }
+          function loopthru(foldern, parent=""){
+            command.return("<br>./" + foldern[0] + "/" + parent)
+            if (format != ""){
+              command.return("total " + (folder.length - 1) );
+            }
+            for (let x=1; x<=foldern.length -1; x++){
+              if (Array.isArray(foldern[x])){
+                dirs.unshift(foldern[x]);
+                command.return(format + foldern[x][0]);
+              }else{
+                command.return(format + foldern[x]);
+              }
+            }
+            dirsgobrr(); 
+          }
+          webpage_sections.forEach(folder =>{
+            if (Array.isArray(folder)){
+              if (recursive){
+                dirs.push(folder);
+              }
+              this.return(format + folder[0]);
+            }
+            else{
+              this.return(format + folder);
+            }
+          })
+          console.log(dirs[0])
+          dirsgobrr();
         break;
         case "kill":
           if ((value >= 0 && value <= maxwinds)){
@@ -139,6 +214,10 @@ class commands {
           load_lang();
         break;
         case "darkmode":
+          if (value.length != 0){
+            this.return(language[lang][13])
+            break;
+          }
           darkmode();
         break;
         case "cd":
