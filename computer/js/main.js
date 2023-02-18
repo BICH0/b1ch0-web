@@ -2,7 +2,8 @@ const maxwinds = 3;
 const command = new commands();
 const screen_state = new tscreen();
 var current_dir;
-const language = [lang_es, lang_en];
+var language;
+var files;
 const history = [];
 var position = 0;
 var dir_stat = false;
@@ -18,18 +19,24 @@ const window_container = document.getElementById("subwindows");
 var win_width = terminal.offsetWidth - 20;
 var win_height = terminal.offsetHeight - prompt.offsetHeight - terminal_header.offsetHeight;
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
 function start() {
   openstorage();
   resize_term();
-  sortfiles();
+  darkmode("load");
+  fetch('https://ivan.confugiradores.es/data.json').then(response => response.json()).then(json => JSON.stringify(json)).then(json => JSON.parse(json)).then(result => {
+    webpage_sections = Array.from(result["route"]);
+    console.log(result["lang"])
+    language = result["lang"];
+    files = result["files"];
+    sortfiles();
+    ready();
+  });
+};
+
+function ready(){
   stdout.style.bottom = parseInt(getComputedStyle(prompt).lineHeight.slice(0,-2)) + 5 + "px";
-  stdout.innerHTML = "</br>";
-  if (! warnmsg){
+  stdout.innerHTML = "<br>";
+  if (warnmsg == "false"){
     stdout.innerHTML += screen_state.home;
   }
   stdout.innerHTML += screen_state.dirtree;
@@ -43,7 +50,7 @@ function start() {
       nwin.style.right = getComputedStyle(owin).right.slice(0,-2) * (i * 0.5) + random + "px";
     }
   }
-};
+}
 
 function openstorage(){
   let storage_warn = storage.getItem('warnmsg');
@@ -53,8 +60,8 @@ function openstorage(){
 };
 
 function load_lang(){
-  if (lang == 1){
-    lang_line.style.marginLeft = "61%";
+  if (lang == "en"){
+    lang_line.style.marginLeft = "56%";
   }else{
     lang_line.style.marginLeft = "11%";
   }
@@ -161,11 +168,6 @@ function window_drag(event){
 
 }
 
-window.addEventListener('resize', function(event){
-  console.log("resize")
-  resize_term();
-});
-
 document.removeEventListener("click", devices_click);
 window.addEventListener('click', async function(event){
   var target = event.target;
@@ -217,9 +219,12 @@ window.addEventListener('keydown', function(event){
     history.push(stdin.value);
     position = history.length;
     command.return("anon@ivan-webpage:~$ " + stdin.value);
-    command.send(stdin.value);
+    if (stdin.value != "") {
+      command.send(stdin.value);
+    }
   }
   else if (pressedkey == "ArrowUp") {
+    event.preventDefault();
     if (position - 1 >= 0){
       position = position - 1;
       stdin.value=history[position];

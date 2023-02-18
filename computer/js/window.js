@@ -14,7 +14,7 @@ class window_creator {
     const new_win = document.createElement("div");
     new_win.id = this.name;
     new_win.classList = "subwin-invisible subwin-visible";
-    new_win.innerHTML = "<div class=\"subheader\" onmousedown=\"window_drag(event)\"><p></p><div class=\"sub-btncontainer\"><div class=\"circle subcircle\"></div><div id=\"max_" + this.name + "\" class=\"circle subcircle maxbtn clickable\"></div><div id=\"cls_" + this.name + "\"class=\"circle subcircle closebtn clickable\"></div></div></div><div class=\"container\"></div>"
+    new_win.innerHTML = "<div class=\"subheader\" onmousedown=\"window_drag(event)\"><p></p><div class=\"sub-btncontainer\"><div class=\"circle subcircle\"></div><div id=\"max_" + this.name + "\" class=\"circle subcircle maxbtn clickable\"></div><div id=\"cls_" + this.name + "\"class=\"circle subcircle closebtn clickable\"></div></div></div><div class=\"container\"></div>";
     terminal.parentNode.appendChild(new_win);
   }
   open (type, arg1) {
@@ -26,7 +26,7 @@ class window_creator {
         let csslink = document.createElement("link");
         win_element.src = arg1;
         this.title.innerHTML = arg1;
-        this.container.appendChild(win_element)
+        this.container.appendChild(win_element);
         win_element.addEventListener("load", function(){
           csslink.href = "../git/iframe.css";
           csslink.rel = "stylesheet";

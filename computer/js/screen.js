@@ -1,4 +1,4 @@
-const webpage_sections = [["aboutme","whoami.html",["knowledge", "programming.md", "services.md"]], ["projects", "readme.md", "terminal-greeter.git", "arch-autoinstaller.git"],  "contact.md"];
+var webpage_sections;
 const tree_files = [];
 const tree_html = [];
 var dir;
@@ -14,19 +14,19 @@ class tscreen {
         draw_tree(element, 0, index, webpage_sections.length);
       }
       function analyze_folder(folder, predecesor=0, father="", end=0){
-        predecesor++
+        predecesor++;
         for (let x=1; x<folder.length; x++) {
           if (Array.isArray(folder[x])){
-            draw_tree(folder[x][0], predecesor, x, folder.length, father+folder[0]+"/", 1)
+            draw_tree(folder[x][0], predecesor, x, folder.length, father+folder[0]+"/", 1);
             analyze_folder(folder[x], predecesor, father+folder[0]+"/", 1);
             end++
           }
           else{
             if (end > 0){
-              draw_tree(folder[x], predecesor, x, folder.length, father+folder[0]+"/", end)
+              draw_tree(folder[x], predecesor, x, folder.length, father+folder[0]+"/", end);
             }
             else{
-              draw_tree(folder[x], predecesor, x, folder.length, father+folder[0]+"/")
+              draw_tree(folder[x], predecesor, x, folder.length, father+folder[0]+"/");
             }
           }
         }
@@ -51,14 +51,15 @@ class tscreen {
             level_id += "&nbsp;&nbsp;";
           }
         }
-        let info = "id=\"" + file + "\" data-path=\"" + datapath + file + "\">";
-        let sufix = file + "</p></br>";
+        let info = "id=\"" + file + "\" data-weight=\"" + Math.trunc((Math.random()*1000)+1) + "\"data-path=\"" + datapath + file + "\">";
+        let sufix = file + "</p><br>";
         switch (index){
           case 0:
             if (level == 0 && index == 0){
               dir = prefix + info + "┏" + sufix;
               break;
             }
+          break;
           case (length - 1):
             dir += prefix + info + level_id + "┗" + sufix;
           break;

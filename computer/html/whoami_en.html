@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whoami</title>
+</head>
+<body>
+    <h1>Info</h1>
+    <img src="../../resources/foto.jpg" alt="moon">
+    <p>My name is Iván Martinez, i'm <span id="age">20</span> years old and im currently living in Madrid. I like playing videogames and Linux.<h2>¿How did I start in IT?</h2>Since I was younger, computers always amazed me and that curiosity led me to joining an extracurricular subject of IT wich really made me fell in love with it.<h2>¿What have I studied?</h2>At the moment I have a CFGM SMR title and I'm finishing CFGS ASIR, I would like to find a company in wich i can keep studying and improving my knowledge.</p>
+    <h1>Servers</h1>
+    <p>In this section im gonna list all the servers i have/had as well as some services that i ran on them in case someone wants to know how it all started.</p>
+    <ul>
+        <li>CNF1: Dell Optiplex
+            <ul>
+                <li>CPU: Intel i5 4570 3.2Ghz</li>
+                <li>RAM: DDR4 16GB 1866Mhz</li>
+                <li>SSD: Samsung 870 EVO 1TB</li>
+                <li>OS: Debian 10</li>
+            </ul>
+        </li>
+        <li>CNF2: Custom
+            <ul>
+                <li>CPU: Intel Xeon e5-2673 v3 3Ghz all cores</li>
+                <li>RAM: DDR4 32GB 2133Mhz</li>
+                <li>SSD: WD Blue SN570 1TB</li>
+                <li>HDD1: Seagate Barracuda 2TB</li>
+                <li>HDD2: HGST Ultrastar 2TB</li>
+                <li>OS: Debian 11</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    const date = new Date(Date.now() - (new Date(2002,06,14)));
+    document.getElementById("age").innerText = Math.abs(date.getUTCFullYear() - 1970);
+</script>
+</html>

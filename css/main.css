@@ -1,0 +1,121 @@
+/* start of global */
+@font-face {
+    font-family: hack;
+    src: url(../resources/fonts/hack/Hack-Regular.ttf);
+}
+*{
+    font-family: hack;
+    color: var(--text);
+    scrollbar-width: none;
+    transition: .5s color, .5s background-color, .5s text-shadow, .5s opacity;
+}
+a{
+    text-decoration: none;
+    color: var(--text);
+}
+body{
+    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+}
+body *:hover{
+    cursor: default;
+}
+body .clickable:hover, body a:hover, body a *:hover{
+    cursor: pointer;
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+h1{
+    text-shadow: 5px 5px var(--shadow-hi);
+}
+h2{
+    font-size: 1.2rem;
+    text-shadow: 3px 3px 1px var(--shadow-low);
+}
+#loader{
+    opacity: 1;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+}
+body, #loader{
+    background-color: var(--background);
+}
+.clickable:hover, a:not(.menu-select):hover, a:not(.menu-select) *:hover{
+    transition: text-shadow .2s;
+    color: var(--text);
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8) !important;
+}
+#languages p:hover{
+    text-shadow: 1px 1px 1.5px var(--text) !important;
+}
+#buttons{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    display: flex;
+}
+#buttons > *{
+    box-shadow: 3px 3px #000000b0;
+    margin: 6px;
+    -webkit-filter: none;
+            filter: none;
+    background-color: var(--shadow-low);
+    border-radius: 1rem;
+}
+#buttons img, #languages > p{
+    height: 2rem;
+    width: 2rem;
+}
+#buttons img{
+    padding: 7px 5px;
+}
+#languages > p{
+    line-height: 2rem;
+    text-align: center;
+    margin: 2px;
+    padding: 5px;
+    display: inline-block;
+    font-size: 1.3rem;
+}
+#languages{
+    position: relative;
+    padding: 0px 5px;
+}
+#lang-line {
+    position: absolute;
+    border-bottom: 2px solid;
+    border-color: var(--text);
+    width: 25%;
+    top: calc(2rem + 4px);
+    margin-left: 61%;
+    /* box-shadow: 1px 1px 2px black; */
+    transition: margin-left .5s, border-color .5s;
+}
+.lang-pre{
+    opacity: 0 !important;
+
+}
+.lang{
+    opacity: 1;
+}
+footer{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    box-shadow: none;
+}
+#drk_btn{
+    transition: box-shadow .2s;
+}
+#drk_btn:hover{
+    box-shadow: 0px 0px 5px 2px var(--text);
+}

@@ -1,0 +1,16 @@
+:root{
+    --background:  #2b2b2b;
+    --main: #414141;
+    --section: #707070;
+    --header: #111111ef;
+    --text: #e4e4e4;
+    --text2: #e4e4e4;
+    --shadow-hi: #000000b9;
+    --shadow-mid: #7777778a;
+    --shadow-low: #0000005b;
+    --accent: #ff5353;
+}
+#sec_contact img{
+    -webkit-filter: invert();
+            filter: invert();
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whoami</title>
+</head>
+<body>
+    <h1>Info</h1>
+    <img src="../../resources/foto.jpg" alt="moon">
+    <p>Mi nombre es Iván Martinez, actualmente tengo <span id="age">20</span> años y vivo en Madrid. Me gustan los videojuegos y Linux.<h2>¿Como empecé en la informática?</h2>Desde pequeño siempre me llamaron la atención los ordenadores y este interés me llevó a una actividad extraescolar de informática que despertó el interés que me ha hecho llegar hasta aquí.<h2>¿Que he estudiado?</h2>Actualmente tengo el título de Técnico en Sistemas Microinformáticos y Redes dónde conocí al mejor profesor, <a href="https://juanmacr.es">Juan Manuel</a>. Ahora estoy acabando Administración de Sistemas Informáticos en Red y me gustaría encontrar una empresa en la que seguir expandiendo mis conocimientos.</p>
+    <h1>Servidores</h1>
+    <p>En esta sección iré listando todos los servidores que tengo/he tenido así como algunos servicios de los servicios que han corrido por si a alguien le interesa saber como empezó todo.</p>
+    <ul>
+        <li>CNF1: Dell Optiplex
+            <ul>
+                <li>CPU: Intel i5 4570 3.2Ghz</li>
+                <li>RAM: DDR4 16GB 1866Mhz</li>
+                <li>SSD: Samsung 870 EVO 1TB</li>
+                <li>OS: Debian 10</li>
+            </ul>
+        </li>
+        <li>CNF2: Custom
+            <ul>
+                <li>CPU: Intel Xeon e5-2673 v3 3Ghz all cores</li>
+                <li>RAM: DDR4 32GB 2133Mhz</li>
+                <li>SSD: WD Blue SN570 1TB</li>
+                <li>HDD1: Seagate Barracuda 2TB</li>
+                <li>HDD2: HGST Ultrastar 2TB</li>
+                <li>OS: Debian 11</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    const date = new Date(Date.now() - (new Date(2002,06,14)));
+    document.getElementById("age").innerText = Math.abs(date.getUTCFullYear() - 1970);
+</script>
+</html>

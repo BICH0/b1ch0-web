@@ -1,0 +1,98 @@
+{
+    "route": [
+        [
+            "aboutme",
+            "whoami.html",
+            [
+                "knowledge",
+                "programming.md",
+                "services.md"
+            ]
+        ],
+        [
+            "projects",
+            "readme.md",
+            "terminal-greeter.git",
+            "arch-autoinstaller.git"
+        ], "contact.md"
+    ],
+    "man_db":{
+        "disable":"",
+        "date":""
+    },
+    "lang":{
+        "es":[
+            ">>Bienvenido, esta página web está hecha emulando un terminal, si no eres familiar con este entorno puedes hacer click en los distintos directorios.<br>Si quieres ocultar este mensaje usa \"disable start\".<br>",
+            "Mensaje de inicio desactivado.",
+            "Mensaje de inicio activado.",
+            " no es un argumento válido.",
+            "No existe el fichero",
+            "failed: No existe el proceso",
+            "no current job",
+            "Idioma cambiado a ES",
+            " Permiso denegado",
+            " no se puede eliminar: Permiso denegado",
+            "No hay ventanas disponibles.",
+            "Orden no encontrada",
+            "¿Quizás quieres una interfaz más sencilla?",
+            "Los argumentos han sido deshabilitados para esta función."
+        ],
+        "en":[
+            ">>Welcome, this webpage is made in a shell-like format, if you are not familiar with this environment you can click where you want to go.<br>If you want to hide this message use \"disable start\".<br>",
+            "Start message disabled.",
+            "Start message enabled.",
+            " is not a valid argument.",
+            "No such file",
+            "failed: Process doesn't exist",
+            "no current job",
+            "Language changed to EN",
+            " Permission denied",
+            " cannot be removed: Permission denied",
+            "No windows available.",
+            "Command not found",
+            "Maybe you want a more friendly UI?",
+            "Arguments have been disabled for this function."
+        ]
+    },
+    "files":{
+        "contact.md":"<a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a><br><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/linkedin.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a><br><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/github.svg' alt='mail'>] Github: </span>BiCH0</a>",
+        "readme_es.md":"En esta sección podrás ver todos los archivos readme de los distintos proyectos que he realizado (ADVERTENCIA!! No todos los archivos están traducidos al español), si quieres acceder a los repositorios ve a <a href='https://github.com/BiCH0'>https://github.com/BiCH0</a>",
+        "readme_en.md":"In this section you can see all my project's readmes, if you want to access the repositories you can head to <a href='https://github.com/BiCH0'>https://github.com/BiCH0</a>",
+        "programming_es.md":"Los distintos lenguajes de programación están ordenados en función de mis conocimientos sobre cada uno:<ul><li>Alto: Bash, Python, JavaScript</li><li>Medio: PowerShell, PHP, LUA, C</li><li>Bajo: Rust</li></ul>",
+        "programming_en.md":"The following programming languages are sorted based in my knowledge of each one:<ul><li>High: Bash, Python, JavaScript</li><li>Medium: PowerShell, PHP, LUA, C</li><li>Low: Rust</li></ul>",
+        "services_es.md":"He trabajado con los siguientes servicios así como con su contraparte de Windows:<br><ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Servidor Web: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Almacenamiento en red: Samba y NFS</li><li>Otros: Iptables, OpenVPN, SSH, FTP/SFTP y Fail2ban</li></ul>",
+        "services_en.md":"I have previously worked with the following services as well as their Windows counterpart:<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network shared files: Samba and NFS</li><li>Others: Iptables, OpenVPN, SSH, FTP/SFTP and Fail2ban</li></ul>"
+    },
+    "mobile":{
+        "header":{
+            "es":[
+                "Conocimientos",
+                "Proyectos",
+                "Contacto",
+                "Compañeros"
+            ],
+            "en":[
+                "Knowledge",
+                "Projects",
+                "Contact",
+                "Teammates"
+            ]
+        },
+        "sections":{   
+            "es":{
+                "whoami":"<h1>¿Quién soy?</h1>Mi nombre es Iván Martínez, actualmente tengo <span id=\"age\">20</span> años y vivo en Madrid. Me gustan los videojuegos y Linux.<img src=\"../resources/foto.png\" alt=\"me\"><h2>¿Como empecé en la informática?</h2>Desde pequeño siempre me llamaron la atención los ordenadores y este interés me llevó a una actividad extraescolar de informática que despertó el interés que me ha hecho llegar hasta aquí.<h2>¿Que he estudiado?</h2>Actualmente tengo el título de Técnico en Sistemas Microinformáticos y Redes dónde conocí al mejor profesor, <a href=\"https://juanmacr.es\">Juan Manuel</a>. Ahora estoy acabando Administración de Sistemas Informáticos en Red y me gustaría encontrar una empresa en la que seguir expandiendo mis conocimientos.",
+                "knowledge":"<h1>Conocimientos</h1> En esta sección hay una lista con los distintos servicios y lenguajes de programación que conozco.<img src=\"../resources/knowledge.png\" alt=\"code\"><h2>Servicios</h2>Junto a estos servicios también sé utilizar su contraparte en Windows.<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network shared files: Samba y NFS</li><li>Others: Iptables, OpenVPN, SSH, FTP/SFTP y Fail2ban</li></ul><h2>Lenguajes de programación</h2>Los distintos lenguajes de programación están ordenados en función de mis conocimientos sobre cada uno.<ul><li>Alto: Bash, Python, JavaScript</li><li>Medio: PowerShell, PHP, LUA, C</li><li>Bajo: Rust</li></ul>",
+                "projects":"<h1>Proyectos</h1>Aquí puedes encontrar una lista con algunos de los proyectos que he ido desarrollando a lo largo de estos años, si quieres más información de alguno de ellos, te recomiendo que vayas a <a href=\"https://github.com/BiCH0\">GitHub/BiCH0</a> para verlos.<div class=\"article-container\"><article style=\"background-image: url(../resources/thumbnails/terminal_greeter.png)\"><h3>Terminal Greeter</h3><p>Esta es una pantalla de inicio de sesión para LightDM Webkit que emula un terminal UNIX.</p></article><article style=\"background-image: url(../resources/thumbnails/arch_installer.png)\"><h3>Arch Installer</h3><p>Script de bash que facilita la instalación de Arch Linux.</p></article><article style=\"background-image: url(../resources/thumbnails/discord_bot.png)\"><h3>Discord Bot</h3><p>Un bot hecho en Python capaz de interactuar con discord capaz de recordar cumpleaños, asignar roles y mucho más!!</p></article></div>",
+                "contact":"<h1>Contacto</h1>Aquí tienes distintas formas de contactar conmigo:<ul><li><a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a></li><li><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/linkedin.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a></li><li><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/github.svg' alt='mail'>] GitHub: </span>BiCH0</a></li></ul>",
+                "teammates":"<h1>Compañeros</h1><ul><li><a href=\"https://bulgaro.confugiradores.es\"><span>Daniel Milenov</span> (@Bulgaro)</a></li><li><a href=\"https://byeejasonn.confugiradores.es\"><span>Jason Londoño</span> (@Byeejasonn)</a></li><li><a href=\"https://fateworks.confugiradores.es\"><span>Miguel León</span> (@FateWorks)</a></li><li><a href=\"https://icutum.confugiradores.es\"><span>Mario Sánchez</span> (@Icutum)</a></li><li><a href=\"https://nrtheriam.es\"><span>Alberto Nieto</span> (@Nrtheriam)</a></li><li><a href=\"https://carlos.confugiradores.es\"><span>Carlos Amicarelli</span> (@Odogmar)</a></li><li><a href=\"https://theblastsfx.confugiradores.es\"><span>Daniel Casado</span> (@TheBlastSFX)</a></li></ul>"
+            },
+            "en":{
+                "whoami":"<h1>¿Who am I?</h1>My name is Iván Martinez, I’m <span id=\"age\">20</span> years old and I’m currently living in Madrid. I like playing videogames and Linux.<img src=\"../resources/foto.png\" alt=\"me\"><h2>¿How did I start in IT?</h2>Since I was younger, computers always amazed me and that curiosity led me to joining an extracurricular subject of IT which really made me fell in love with it.<h2>¿What have I studied?</h2>At the moment I have a technical degree in Micro informatic Systems and Networks where I met my all-time favorite teacher <a href=\"https://juanmacr.es\">Juan Manuel</a>. Currently I'm finishing a superior technical degree in ASIR, I would like to find a company in which I can keep studying and improving my knowledge.",
+                "knowledge":"<h1>Knowledge</h1> In this section there is a list with some of the services and programming languages that I use/know.<img src=\"../resources/knowledge.png\" alt=\"code\"><h2>Services</h2>I have previously worked with the following services as well as their Windows counterpart.<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network shared files: Samba y NFS</li><li>Others: Iptables, OpenVPN, SSH, FTP/SFTP y Fail2ban</li></ul><h2>Programming languages</h2>The following programming languages are sorted based in my knowledge of each one.<ul><li>High: Bash, Python, JavaScript</li><li>Medium: PowerShell, PHP, LUA, C</li><li>Low: Rust</li></ul>",
+                "projects":"<h1>Projects</h1>Here you can find a list with some of the projects that I have been developing in the last few years, if you want to know more about any of them I recommend you go to <a href=\"https://github.com/BiCH0\">GitHub/BiCH0</a>.<div class=\"article-container\"><article style=\"background-image: url(../resources/thumbnails/terminal_greeter.png)\"><h3>Terminal Greeter</h3><p>This is a lightdm webkit based greeter that emulates a UNIX terminal.</p></article><article style=\"background-image: url(../resources/thumbnails/arch_installer.png)\"><h3>Arch Installer</h3><p>Bash script to make Arch Linux installation a bit easier.</p></article><article style=\"background-image: url(../resources/thumbnails/discord_bot.png)\"><h3>Discord Bot</h3><p>Python bot that interacts with Discord, its capable of remember birthdays, set roles on join and much more!!</p></article></div>",
+                "contact":"<h1>Contact</h1>Here you have some ways to contact me:<ul><li><a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a></li><li><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/linkedin.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a></li><li><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/github.svg' alt='mail'>] GitHub: </span>BiCH0</a></li></ul>",
+                "teammates":"<h1>Teammates</h1><ul><li><a href=\"https://bulgaro.confugiradores.es\"><span>Daniel Milenov</span> (@Bulgaro)</a></li><li><a href=\"https://byeejasonn.confugiradores.es\"><span>Jason Londoño</span> (@Byeejasonn)</a></li><li><a href=\"https://fateworks.confugiradores.es\"><span>Miguel León</span> (@FateWorks)</a></li><li><a href=\"https://icutum.confugiradores.es\"><span>Mario Sánchez</span> (@Icutum)</a></li><li><a href=\"https://nrtheriam.es\"><span>Alberto Nieto</span> (@Nrtheriam)</a></li><li><a href=\"https://carlos.confugiradores.es\"><span>Carlos Amicarelli</span> (@Odogmar)</a></li><li><a href=\"https://theblastsfx.confugiradores.es\"><span>Daniel Casado</span> (@TheBlastSFX)</a></li></ul>"
+            }
+        }
+    }
+}

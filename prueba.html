@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Contador <span id="contador"></span></div>
+    <script>
+        let element = document.getElementById("contador");
+        function sleep(time){
+            return new Promise((resolve) => setTimeout(resolve, time))
+        }
+        async function main(){
+            for (let x=0000;x<=9999;x++){
+                await sleep(200);
+                let temp = x.toString();
+                while (temp.length<4){
+                    temp = 0+temp;
+                }
+                element.innerText = temp.replaceAll("3","E");
+            }
+        }
+        main();
+    </script>
+</body>
+</html>

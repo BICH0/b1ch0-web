@@ -1,0 +1,21 @@
+:root{
+    --background:  #979797;
+    --main: #cacaca;
+    --section: #e9e9e9;
+    --header: #111111ef;
+    --text: #000000;
+    --text2: #e4e4e4;
+    --shadow-hi: #000000b9;
+    --shadow-mid: #7777778a;
+    --shadow-low: #6d6d6d5b;
+    --accent: #db2a2a;
+}
+html > body > div#wrapper > header > nav a:hover{
+    color: var(--text2);
+}
+@media only screen and (max-width: 935px){
+    html body div#wrapper header div#buttons img#drk_btn.clickable{
+        -webkit-filter: invert() drop-shadow(2px 2px 2px var(--shadow-mid));
+                filter: invert() drop-shadow(2px 2px 2px var(--shadow-mid));
+    }
+}

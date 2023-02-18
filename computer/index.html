@@ -1,54 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>Pagina de Ivan Martinez</title>
+    <title>Webpage of Iván Martínez</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenido a la página web de Iván Martínez!!">
+    <meta name="keywords" content="b1ch0, ivan, ivanM, informatico, IT, confugiradores">
+    <meta name="author" content="Iván Martínez">
+    <meta name="reply-to" content="b1ch0@confugiradores.es">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/nightmode.css">
-    <link rel="stylesheet" type="text/css" href="./main.css">
-    <link rel="stylesheet" type="text/css" href="../css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="computer.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
   </head>
   <body>
     <div id="loader"></div>
     <div id="wrapper">
-      <div id="buttons">
-        <div id="languages">
-            <p id="lng_ES" class="clickable">ES</p><p id="lng_EN" class="clickable">EN</p>
-            <div id="lang-line"></div>
+      <header>
+        <div id="buttons">
+          <div id="languages">
+              <p id="lng_ES" class="clickable">ES</p><p id="lng_EN" class="clickable">EN</p>
+              <div id="lang-line"></div>
+          </div>
+          <img src="../resources/bulb2.png" alt="nightmode" id="drk_btn" class="clickable">
         </div>
-        <img src="../resources/moon.png" alt="nightmode" id="drk_btn" class="clickable">
-      </div>
-      <div id="header">
-        <p>#include &lt;stdio.h&gt;<br/>
-        char owner[]="Iván Martínez";<br/>
-        void main() {<br/>
-        printf("Welcome to the webpage of %s.", &owner);<br/>
-        }</p>
-        <h1>Welcome to the webpage of Iván Martínez</h1>
-      </div>
-      <div id="terminal">
-        <div id="terminal-header">
-          <p>Terminal~</p>
-          <div id="button-container">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+        <div id="header">
+          <p>#include &lt;stdio.h&gt;<br>
+          char owner[]="Iván Martínez";<br>
+          void main() {<br>
+          printf("Welcome to the webpage of %s.", &owner);<br>
+          }</p>
+          <h1>Welcome to the webpage of Iván Martínez</h1>
+        </div>
+      </header>
+      <main>
+        <div id="terminal">
+          <div id="terminal-header">
+            <p>Terminal~</p>
+            <div id="button-container">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div id="terminal-content">
+          </div>
+          <div id="prompt">
+            <span>anon@ivan-webpage:~$</span>
+            <input type="text" id="stdin">
           </div>
         </div>
-        <div id="terminal-content">
-        </div>
-        <div id="prompt">
-          <span>anon@ivan-webpage:~$</span>
-          <input type="text" id="stdin">
-        </div>
-      </div>
+      </main>
     </div>
-    <div id="footer">
-      <p>Iván Martinez Alcoceba 2022</p>
-    </div>
-  <script type="text/javascript" src="../js/preload.js"></script>
-  <script type="text/javascript" src="js/window.js"></script>
-  <script type="text/javascript" src="js/commands.js"></script>
-  <script type="text/javascript" src="js/screen.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+    <footer>
+			Iván Martínez Alcoceba <span id="year"></span>
+		</footer>	
+  <script src="../js/preload.js"></script>
+  <script src="js/window.js"></script>
+  <script src="js/commands.js"></script>
+  <script src="js/screen.js"></script>
+  <script src="js/main.js"></script>
   </body>
 </html>

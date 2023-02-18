@@ -1,9 +1,6 @@
 var value;
 var wrong_command = 0;
-var lang_es=["<p>&gt;&gt;Bienvenido, esta pagina web esta hecha emulando un terminal, si no eres familiar con este entorno puedes hacer click en los distintos directorios.<br/>Si quieres ocultar este mensaje usa &quot;disable start&quot;.</p>","Mensaje de inicio desactivado","Mensaje de inicio activado","no es un argumento valido.",": No existe el fichero o el directorio","failed: No existe el proceso","no current job","Idioma cambiado a ES","no se puede acceder al directorio", "no se puede eliminar el directorio o archivo","No hay ventanas disponibles.","Orden no encontrada",
-"¿Quizas quieres una interfaz mas sencilla?","error: los argumentos han sido deshabilitados para esta función."]
-var lang_en=["<p>&gt;&gt;Welcome, this webpage is made in a shell-like format, if you are not familiar with this enviorment you can click where you want to go.<br/>If you want to hide this message use &quot;disable start&quot;.</p>","Start message disabled","Start message enabled","is not a valid argument.",": No such file or directory.","failed: Process doesn't exist","no current job","Language changed to EN","Permission denied","cannot be removed: Permission denied","No windows available.","Command not found.","Maybe you want a more friendly ui?","error: arguments have been disabled for this function."]
-
+var shell = "sh: "
 class commands {
   send (cm_content){
     cm_content = cm_content.split(" ");
@@ -13,7 +10,7 @@ class commands {
   }
   handle (cm,value) {
     stdin.value = "";
-    if (cm.slice(0,1) == "." || cm.slice(0,1) == "/") {
+    function execute_function(){
       cm = cm.split("/");
       cm.shift();
       let lastfield = cm.pop();
@@ -23,23 +20,26 @@ class commands {
       if (tree_html.includes(cm.join("") + lastfield)){
         switch (lastfield.slice(-4,)){
           case "html":
-            this.run_window("iframe","html/" + lastfield);
+            command.run_window("iframe","html/" + lastfield.split(".")[0]+"_"+lang+".html");
           break;
           case ".git":
-            this.run_window("iframe","git/" + lastfield.split(".")[0] + ".html");
+            command.run_window("iframe","git/" + lastfield.split(".")[0]+".html");
           break;
           case ".pdf":
             let a = document.createElement(a);
             document.body.appendChild(a);
             a.download = lastfield;
             a.href = "";
-            a.click();
+            a.click(); 
           break;
         }
       }
       else{
-        this.return("bash" + language[lang][4])
+        command.return(shell + "error: " + language[lang][4]);
       }
+    }
+    if (cm.slice(0,1) == "." || cm.slice(0,1) == "/") {
+      execute_function();
     }else{
       switch (cm) {
         case "disable":
@@ -48,7 +48,8 @@ class commands {
             this.return(language[lang][1]);
             break;
           }
-          this.return("disable: " + value + language[lang][3])
+          this.return(value + language[lang][3]);
+          break;
         case "enable":
           if (value == "start"){
             storage.setItem("warnmsg", false);
@@ -57,104 +58,138 @@ class commands {
         break;
         case "date":
           if (value.length != 0){
-            this.return(language[lang][13])
+            this.return("date: " + language[lang][13]);
             break;
           }
-          let date = new Date();
-          this.return(date.toString().split("(")[0])
+          this.return(date.toString().split("(")[0]);
         break;
         case "cat":
           value = value[0].split("/");
-          value.shift();
+          if (value[0] == "." || value[0] == ""){
+            value.shift();
+          }
           value = value.join("/");
           if (tree_files.includes(value)){
             this.cat(value);
           }else{
-            this.return("cat: " + value + language[lang][4])
+            this.return("cat: " + value + language[lang][4]);
           }
+        break;
+        case "echo":
+          this.return(value.toString().replaceAll('"',''));
+        break;
+        case "pwd":
+          this.return("/");
         break;
         case "clear":
           if (value.length != 0){
-            this.return(language[lang][13])
+            this.return("clear: " + language[lang][13]);
             break;
           }
-          stdout.innerHTML = "</br>";
+          stdout.innerHTML = "<br>";
           stdout.style.height = "";
+          this.return(screen_state.dirtree);
         break;
         case "tree":
           if (value.length != 0){
-            this.return(language[lang][13])
+            this.return("tree: " + language[lang][13]);
             break;
           }
           this.return(screen_state.dirtree);
         break;
         case "ls":
-          let ls_result, recursive, format, all, dirs, parents;
-          dirs = parents = [];
-          ls_result = recursive = format = all = "";
+          let ls_result, recursive, all, dirs, parents, parents2, exitfn;
+          dirs = []; parents = []; parents2 = [];
+          let format = ["","","",""];
+          ls_result = recursive = all = "";
+          function returndata(item, folder=false){
+            let prefix ="";
+            if (format[1] != ""){
+              if (folder){
+                prefix = format[0] + format[1] + document.getElementById(item).getAttribute("data-weight");
+              }
+              else{
+                prefix = "-" + format[1] + document.getElementById(item).getAttribute("data-weight");
+              }
+            }
+            command.return(prefix + format[3] + "<span class=\"clickable\" data-path=\"" + document.getElementById(item).getAttribute("data-path") + "\">" + item + "</span>");
+          }
           value.forEach(arg=>{
             if (arg.slice(0,1) == "-"){
               arg.slice(1,).split("").forEach(param => {
-                console.log(param)
                 switch (param) {
                   case "l":
-                    format = "-rw-r--r-- 1 ivan ivan    " + Math.trunc((Math.random()+0.2)/3*100) + " may 25 06:30 ";    
+                    format = ["d","rw-r--r-- 1 ivan ivan    ", 1," may 25 06:30 "];    
                     break;
                   case "R":
                     recursive = true;
                     break;
                   case "a":
-                    this.return("<p>.</p><br/><p>..</p>");
+                    all = true;
                     break;
                   case "A":
-                    let aall = true;
                   break;
+                  default:
+                    this.return("ls: error: -" + param + language[lang][3]);
+                    exitfn = 1;
                 }
               })
             }else{
               let file = arg.split("/")[arg.split("/").length - 1];
-              console.log(arg.split("/"))
               if (arg.slice(0,2) == ".."){
-                this.return(language[lang][8])
+                this.return("ls: error:" + language[lang][8]);
               }
             }
           })
-          console.log("Format: " + format)
+          function getall(){
+            if (all){
+              command.return(format[0]+format[1] + format[2] + format[3] + ".");
+              command.return(format[0]+format[1] + format[2] + format[3] + "..");
+            }
+          }
           function dirsgobrr(){
-            dirs.forEach( dir => {
-              dirs.shift()
-              parents += [dir[0]];
-              loopthru(dir, parents[dir.index]);
-            })
-          }
-          function loopthru(foldern, parent=""){
-            command.return("<br>./" + foldern[0] + "/" + parent)
-            if (format != ""){
-              command.return("total " + (folder.length - 1) );
+            for (let x=0; x<dirs.length; x++){
+              command.return("<br>" + parents[x] + "/" + dirs[x][0]);
+              if (Array.isArray(dirs[x])){
+                loopthru(dirs[x], parents[x]+ "/" + dirs[x][0]);
+              }  
             }
-            for (let x=1; x<=foldern.length -1; x++){
+          }
+          function loopthru(foldern, parent="", value=1){
+            if (format[1] != "" && parent != "."){
+              command.return("total " + (foldern.length - 1) );
+              getall();
+            }
+            for (let x = value; x<=foldern.length -1; x++){
               if (Array.isArray(foldern[x])){
-                dirs.unshift(foldern[x]);
-                command.return(format + foldern[x][0]);
+                if (recursive){
+                  if (value == 0){
+                    dirs.push(foldern[x]);
+                    parents.push(parent);
+                  }else{
+                    dirs.splice(1,0,foldern[x]);
+                    parents.splice(1,0,parent);
+                  }
+                }
+                returndata(foldern[x][0], true);
               }else{
-                command.return(format + foldern[x]);
+                returndata(foldern[x]);
               }
             }
-            dirsgobrr(); 
+            if (value == 0){
+              dirsgobrr(); 
+            }
           }
-          webpage_sections.forEach(folder =>{
-            if (Array.isArray(folder)){
-              if (recursive){
-                dirs.push(folder);
-              }
-              this.return(format + folder[0]);
+          if (exitfn == null){
+            if (recursive){
+              command.return(".:");
             }
-            else{
-              this.return(format + folder);
+            if (format[1] != ""){
+              command.return("total " + webpage_sections.length);
             }
-          })
-          console.log(dirs[0])
-          dirsgobrr();
+            getall();
+            loopthru(webpage_sections,".",0);
+          }
         break;
         case "kill":
           if ((value >= 0 && value <= maxwinds)){
@@ -181,7 +216,7 @@ class commands {
               break;
             }
           }
-          this.return("bg: " + language[lang][6])
+          this.return(language[lang][6],cm);
         break;
         case "fg":
           value = "window" + value;
@@ -193,48 +228,56 @@ class commands {
               break;
             }
           }
-          this.return("fg: " + language[lang][6])
+          this.return(language[lang][6],cm);
         break;
         case "lang":
           value = value[0].toLowerCase();
           switch (value){
             case "es":
-              lang = 0;
-              storage.setItem("lang", 0);
-              this.return(language[lang][7]);
-            break;
             case "en":
-              lang = 1;
-              storage.setItem("lang", 1);
+              lang = value;
+              storage.setItem("lang", lang);
               this.return(language[lang][7]);
             break;
           default:
-            this.return("lang: " + value + language[lang][3]);
+            this.return(value + language[lang][3],cm);
           }
           load_lang();
         break;
         case "darkmode":
           if (value.length != 0){
-            this.return(language[lang][13])
+            this.return(language[lang][13]);
             break;
           }
           darkmode();
         break;
         case "cd":
-          this.return("cd: " + language[lang][8]);
+          console.log(value)
+          if (value[0] == undefined){
+            value[0] = ".";
+          }
+          this.return(value[0] + ":" + language[lang][8],cm);
         break;
         case "rm":
-          this.return("rm: " + language[lang][9]);
+          if (value[1] == undefined){
+            value[1] = ".";
+          }
+          this.return(value[1] + language[lang][9],cm);
         break;
         default:
+          if (tree_html.includes(cm + value)){
+            cm = "/" + cm;
+            execute_function();
+            return;
+          }
           if (wrong_command >= 5){
-            this.return(language[lang][12])
+            this.return(language[lang][12]);
             stdout.innerHTML += "<a href='../mobile/index.html'>Click Here!!</a>";
             wrong_command = 0;
           }
           else{
-            wrong_command++
-            this.return("sh: " + language[lang][11]);
+            wrong_command++;
+            this.return(language[lang][11],cm);
           }
       }
     }
@@ -250,6 +293,7 @@ class commands {
       })
     }
     catch (error) {
+      console.log(error);
     }
     if (available){
       available.open(type, arg1);
@@ -267,15 +311,23 @@ class commands {
     return path;
   }
   cat (file) {
-    file = this.route(file);
-      if(1 == 1){
-        stdout.innerHTML += "<a href='mailto:ivan@confugiradores.es'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a></br><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a></br><a href='https://discord.gg/user/b1ch0.sh#9734'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Discord: </span>b1ch0.sh#9734</a></br><a href='https://discord.gg/user/b1ch0.sh#9734'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Discord: </span>b1ch0.sh#9734</a>";
+    let file_og = file.split("/").pop();
+    file = file_og.split(".").shift() + "_" + lang + ".md";
+    if (files[file] != undefined){
+      stdout.innerHTML += files[file];
+    }else{
+      if (files[file_og] != undefined){
+        stdout.innerHTML += files[file_og];
+      }else{
+        this.return(value + ": " + lang[langs][4],cm);
       }
-      else{
-        this.return("cat: " + file + language[lang][6]);
-      }
+    }
+    height_check();
   }
-  return (message){
+  return (message,cm=false){
+    if (cm != false){
+      message = shell + cm + ": " + message;
+    }
     stdout.innerHTML += "<p>" + message + "</p>";
     height_check(2);
   }

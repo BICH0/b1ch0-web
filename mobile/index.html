@@ -1,12 +1,126 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>Mobile 26 noscope</title>
-  </head>
-  <body>
-    <header>Mobile :sunglasses:</header>
-    <main></main>
-    <footer></footer>
-  </body>
+<html lang="es" dir="ltr">
+<head>
+	<title>Webpage of Iván Martínez</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Buenas!! Soy Ivan Martinez, también conocido como B1CH0 soy un Tecnico de Sistemas Microinformaticos y Redes. Actualmente mantengo el servidor de Confugiradores así como CNFLinux">
+	<meta name="keywords" content="b1ch0, ivan, ivanM, informatico, informatica, servidor, linux, confugiradores">
+	<meta name="author" content="Iván Martínez">
+	<meta name="robots" content="index,nofollow">
+	<meta name="reply-to" content="b1ch0@confugiradores.es">
+	<link rel="stylesheet" type="text/css" href="css/nightmode.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<link rel="shortcut icon" href="../resources/favicon.ico" type="image/ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body>
+	<div id="loader"></div>
+	<div id="wrapper">
+		<header>
+			<img src="../resources/svg/menu.svg" class="clickable" id="menu_toggle" alt="Menu">
+			<nav><a href="#" class="clickable">Iván Martínez</a><a href="#sec_knowledge" class="clickable">Knowledge</a><a href="#sec_projects" class="clickable">Projects</a><a href="#sec_contact" class="clickable">Contact</a><a href="#sec_teammates" class="clickable">Teammates</a>
+			</nav>
+			<div id="buttons">
+				<div id="languages">
+					<p id="lng_ES" class="clickable">ES</p><p id="lng_EN" class="clickable">EN</p>
+					<div id="lang-line"></div>
+				</div>
+				<img src="../resources/bulb2.png" alt="nightmode" id="drk_btn" class="clickable">
+			</div>
+		</header>
+		<main></main>
+		<img src="../resources/svg/goup.svg" alt="GoUp" id="goup" class="clickable" onclick="toTopPlease()">
+		<footer>
+			Iván Martínez Alcoceba <span id="year"></span>
+		</footer>	
+	</div>
+
+	<script src="../js/preload.js"></script>
+	<script>
+		const main = document.getElementsByTagName("main")[0];
+		const nav = document.getElementsByTagName("nav")[0];
+		const header = document.getElementsByTagName("header")[0];
+		const goup = document.getElementById("goup");
+		var headers = [];
+		var sections = [];
+		async function start(){
+			await fetch('../data.json').then(response => response.json()).then(json => JSON.stringify(json)).then(json => JSON.parse(json)).then(result => {
+				result = result["mobile"];
+				headers = result["header"];
+				sections = result["sections"];
+			});
+			Object.keys(sections[lang]).map(key => {
+				main.innerHTML += "<section id='sec_" + key + "'>" + sections[lang][key] + "</section>";
+			})
+			load_lang();
+		}
+		function load_lang(){
+			console.log("going to lang")
+			if (lang == "en"){
+				lang_line.style.marginLeft = "56%";
+			}else{
+				lang_line.style.marginLeft = "11%";
+			}
+			if (headers[lang]){
+				apply_lang();
+			}
+		}
+		async function apply_lang(){
+			await mask_transition(nav.childNodes, headers[lang],1);
+			await mask_transition(main.childNodes, Object.values(sections[lang]),0);
+			setTimeout(()=>{
+				document.getElementById("age").innerText = age;
+			},400 + (main.childNodes.length * 50));
+		}
+		async function wiggle(item){
+			item.classList.add("wiggle");
+			setTimeout(()=>{
+				item.classList.remove("wiggle");
+			},2000)
+		}
+		function toTopPlease(){
+			document.body.scrollTop=0;
+			document.documentElement.scrollTop=0;
+		}
+		let openmenu = function (e){
+			nav.style.transform = "";
+			nav.style.boxShadow = "";
+			setTimeout(()=>{
+				document.getElementById("menu_toggle").style.opacity = "100%";
+			},330)
+			document.removeEventListener("click", openmenu, true);
+		}
+		window.onscroll = ( e => {
+			if (window.pageYOffset > 21) {
+				header.classList.add("sticky");
+			} else {
+				header.classList.remove("sticky");
+			}
+			if (window.pageYOffset > 700){
+				goup.style.transform="translateX(0px)";
+			}else{
+				goup.style.transform="";
+			}
+		})
+		document.addEventListener("click", event =>{
+			if (event.target.classList.contains("clickable")){
+				try{
+					let href = event.target.href.split("/");
+					href = href.pop();
+					if (/html\#.+/.test(href)){
+						wiggle(document.getElementById(href.split("#")[1]));
+					}
+				}catch{
+					if (event.target.id == "menu_toggle"){
+						nav.style.transform = "translateX(0)";
+						nav.style.boxShadow = "0px 0px 0px 100vh var(--shadow-hi)";
+						event.target.style.opacity = "0";
+						document.addEventListener("click", openmenu, true);
+					}
+				}
+			}
+		})
+	</script>
+</body>
 </html>

@@ -1,0 +1,77 @@
+@font-face {
+    font-family: gunship;
+    src: url(./resources/fonts/gunshiplaser.ttf);
+}
+html{
+    background-color: #2b2b2b;
+    color: white;
+}
+body{
+    text-align: center;
+}
+main{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 70vh;
+}
+section{
+    width: 40vw;
+    margin: auto 0 auto auto;
+    padding: 20px 20px 20px 0;
+    border-right: 4px solid white;
+    filter: drop-shadow(5px 5px 5px black);
+}
+h1,h2,h3{
+    font-family: gunship;
+}
+h1{
+    text-shadow: 5px 5px 5px black;
+    font-size: 5vw;
+    margin-bottom: 0;
+}
+h2{
+    font-size: 14vw;
+    margin: 0;
+}
+h3{
+    margin: 0;
+    font-size: 3vw;
+    text-align: right;
+}
+img{
+    margin: 0 auto 0 20px;
+    filter: drop-shadow(5px 5px 5px #00000085);
+    max-width: 45vw;
+    height: 100%;
+    object-fit: contain;
+}
+@media only screen and (max-width: 480px){
+    main{
+        flex-direction:column-reverse;
+        height: auto;
+    }
+    section{
+        height: auto;
+        margin: 0;
+        border: none;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+    h1{
+    font-size: 7vw;
+    }
+    h3{
+        text-align: center;
+    }
+    img{
+        height: auto;
+        margin: 0 auto;
+    }
+}
+@media only screen and (min-width: 1400px){
+    h1{
+        font-size: 3vw;
+    }
+}
