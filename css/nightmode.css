@@ -1,16 +1,20 @@
 :root{
-    --background:  #2b2b2b;
-    --light-grey: #7d7d7db3;
-    --term: #000;
-    --text: #fff;
-    --text2: #fff;
-    --shadow-opaque: #000;
-    --shadow-hi: #000000b3;
-    --shadow-mid: #00000080;
-    --shadow-low: #00000033;
-    --header: #ffffff2a;
-    --subheader: #3b3b3b;
-    --disabled-button: #694646;
-    --closebtn: #9a1212;
-    --maxbtn: #9a8c12;
+    --background: #0d0d0d;
+    --light-grey: #1a2e1a;
+    --term: #080808;
+    --text: #00ff41;
+    --text2: #00cc33;
+    --shadow-opaque: #000000;
+    --shadow-hi: rgba(0, 255, 65, 0.2);
+    --shadow-mid: rgba(0, 255, 65, 0.08);
+    --shadow-low: rgba(0, 0, 0, 0.6);
+    --header: rgba(0, 255, 65, 0.12);
+    --subheader: #0d1f0d;
+    --disabled-button: #314d31;
+    --closebtn: #ff4444;
+    --maxbtn: #ffcc00;
+    --glow: rgba(0, 255, 65, 0.35);
+    --border: rgba(0, 255, 65, 0.12);
+    --icon-filter: invert(1) sepia(1) saturate(4) hue-rotate(85deg);
+    --scanlines: rgba(0, 0, 0, 0.04);
 }

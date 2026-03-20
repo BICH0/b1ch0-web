@@ -1,16 +1,20 @@
 :root{
-    --background:  #dadada;
-    --light-grey: #7d7d7db3;
-    --term: #000;
-    --text: #000000;
-    --text2: #fff;
-    --shadow-opaque: #afafaf;
-    --shadow-hi: #97979782;
-    --shadow-mid: #0000008c;
-    --shadow-low: #00000033;
-    --header: #00000036;
-    --subheader: #3b3b3b;
-    --disabled-button: #9c5e5e;
-    --closebtn: #b82626;
-    --maxbtn: #cabb33;
+    --background: #f2f2f2;
+    --light-grey: #cccccc;
+    --term: #ffffff;
+    --text: #111111;
+    --text2: #1a1a1a;
+    --shadow-opaque: #888888;
+    --shadow-hi: rgba(0, 0, 0, 0.3);
+    --shadow-mid: rgba(0, 0, 0, 0.15);
+    --shadow-low: rgba(0, 0, 0, 0.12);
+    --header: rgba(0, 0, 0, 0.08);
+    --subheader: #e8e8e8;
+    --disabled-button: #949494;
+    --closebtn: #cc2222;
+    --maxbtn: #cc9900;
+    --glow: rgba(0, 0, 0, 0.4);
+    --border: rgba(0, 0, 0, 0.2);
+    --icon-filter: none;
+    --scanlines: rgba(0, 0, 0, 0);
 }

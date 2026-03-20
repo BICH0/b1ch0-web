@@ -1,126 +1,62 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
-<head>
-    <title>Home - Webpage of Iván Martínez</title>
+  <head>
+    <title>Iván (BiCH0) Martínez</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bienvenido a la página web de Iván Martínez!!">
-    <meta name="keywords" content="b1ch0, ivan, ivanM, informatico, IT, confugiradores, ivan martinez, ivan martinez alcoceba">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portfolio de Iván Martínez — Consultor de Ciberseguridad">
+    <meta name="keywords" content="b1ch0, ivan, cybersecurity, ciberseguridad, rust, pentesting, confugiradores">
     <meta name="author" content="Iván Martínez">
-    <meta name="reply-to" content="b1ch0@confugiradores.es">
+    <meta name="reply-to" content="ivan@confugiradores.es">
     <meta name="robots" content="index,follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="VYJwlOt_ilZ96YATQyl7xmfr1BEdWE3GWLRQIL42VxI" />
-    <style>
-        h1{
-            width: 90%;
-            text-align: center;
-            font-size: 2rem;
-            position: relative;
-            margin: 100px 5% 50px 5%;
-        }
-        div{
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-        }
-        .hidden{
-            display: none;
-        }
-        a{
-            display: inline-block;
-            position: relative;
-            -webkit-box-flex : 50%;
-                -ms-flex : 50%;
-                    flex : 50%;
-            margin: 0 10%;
-        }
-        p:not(footer p, #languages p){
-            margin: 5px auto;
-            width: 90%;
-            font-size: 1.3rem;
-            text-shadow: 2px 2px var(--shadow-opaque);
-        }
-        img{
-            width: 30vw;
-            -webkit-filter: drop-shadow(10px 10px #000000b0);
-                    filter: drop-shadow(10px 10px #000000b0);
-            -webkit-transition: -webkit-filter 0.5s;
-            transition: -webkit-filter 0.5s;
-            -o-transition: filter 0.5s;
-            transition: filter 0.5s;
-            transition: filter 0.5s, -webkit-filter 0.5s;
-        }
-        a:hover > img, img:hover{
-            -webkit-transition: -webkit-filter 0.5s;
-            transition: -webkit-filter 0.5s;
-            -o-transition: filter 0.5s;
-            transition: filter 0.5s;
-            transition: filter 0.5s, -webkit-filter 0.5s;
-            -webkit-filter: drop-shadow(20px 20px #000000b0);
-                    filter: drop-shadow(20px 20px #000000b0);
-        }
-    </style>
+    <meta name="theme-color" content="#080808">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" type="text/css" href="css/nightmode.css">
+    <link rel="stylesheet" type="text/css" href="css/computer.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
-</head>
-<body>
+  </head>
+  <body>
     <div id="loader"></div>
-    <header>
-        <div id="buttons">
-            <div id="languages">
-                <p id="lng_ES" class="clickable">ES</p>
-                <p id="lng_EN" class="clickable">EN</p>
-                <div id="lang-line"></div>
+    <div id="wrapper">
+      <div id="buttons">
+        <div id="languages">
+          <p id="lng_ES" class="clickable">ES</p><p id="lng_EN" class="clickable">EN</p>
+          <div id="lang-line"></div>
+        </div>
+        <img src="resources/bulb2.png" alt="toggle theme" id="drk_btn" class="clickable">
+      </div>
+      <main>
+        <div id="terminal">
+          <div id="terminal-header">
+            <p><span class="th-host">bich0@confugiradores.es</span><span class="th-sep"> ~ </span><span class="th-shell">bash</span></p>
+            <div id="button-container">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
             </div>
-            <img src="resources/bulb2.png" alt="nightmode" id="drk_btn" class="clickable">
+          </div>
+          <div id="terminal-scroll">
+            <div id="terminal-content"></div>
+            <div id="prompt">
+              <span>anon@bich0:~$&nbsp;</span>
+              <input type="text" id="stdin" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>
+          </div>
         </div>
-    </header>
-    <main>
-        <p style="font-size: 2.5rem;position: relative;z-index: 100;top:25vh;text-align: center;" class="visible">Wait while we redirect you to the most apropiate enviorment</p>
-        <h1 class="hidden lang" id="title">Welcome to the webpage of Iván Martínez</h1>
-        <div>
-            <a href="mobile" class="hidden menu-select"><img src="resources/svg/mobile.svg" alt="mobile"><p id="usual" class="lang"></p></a>
-            <a href="computer" class="hidden menu-select"><img src="resources/svg/computer.svg" alt="computer"><p id="term" class="lang"></p></a>
-        </div>
-    </main>
+      </main>
+    </div>
     <footer>
-        Iván Martínez Alcoceba <span id="year"></span>
-    </footer>	
+      Iván Martínez Alcoceba <span id="year"></span>
+    </footer>
     <script src="js/preload.js"></script>
-    <script>
-        const new_url = document.location.href.split("/").slice(0,-1)
-        function start(){
-            if ( window.innerWidth <= 600 && window.innerHeight <= 950 ){
-                console.log("phone");
-                document.location.href = document.location.href + "mobile";
-            }else{
-                Array.from(document.getElementsByClassName("hidden")).forEach( element => {
-                    element.classList.toggle("hidden")
-                })
-                document.getElementsByClassName("visible")[0].classList.toggle("hidden")
-            }
-        }
-        function load_lang(){
-            const lang_es = ["Bienvenido a la página web de Iván Martínez, elige el método de representación que prefieras.", "Si eliges este método verás una página de una manera usual", "Si eliges este método, verás una página web que emula un terminal, de esta forma podrás ver la información de una manera más especial."]
-            const lang_en = ["Welcome to Iván Martínez's webpage, choose the representation method you prefer.", "If you select this method you will be redirected to a usual website.", "If you select this method you will be presented with a terminal where you can watch everything in a more techie way."]
-            globalThis.language = {"es":lang_es, "en":lang_en};
-            if (lang == "en"){
-                lang_line.style.marginLeft = "56%";
-            }else{
-                lang_line.style.marginLeft = "11%";
-            }
-            let elements = [document.getElementById("title"), document.getElementById("usual"), document.getElementById("term")];
-            for (let x=0; x < elements.length; x++){
-                elements[x].classList.add("lang-pre");
-                setTimeout(function(){
-                    elements[x].innerText = language[lang][x];
-                    elements[x].classList.remove("lang-pre");
-                },400)
-            }
-        }
-    </script>
-    </body>
+    <script src="js/window.js"></script>
+    <script src="js/screen.js"></script>
+    <script src="js/commands.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

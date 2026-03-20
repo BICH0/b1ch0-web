@@ -10,89 +10,100 @@
             ]
         ],
         [
-            "projects",
-            "readme.md",
-            "terminal-greeter.git",
-            "arch-autoinstaller.git"
-        ], "contact.md"
-    ],
-    "man_db":{
-        "disable":"",
-        "date":""
-    },
-    "lang":{
-        "es":[
-            ">>Bienvenido, esta página web está hecha emulando un terminal, si no eres familiar con este entorno puedes hacer click en los distintos directorios.<br>Si quieres ocultar este mensaje usa \"disable start\".<br>",
-            "Mensaje de inicio desactivado.",
-            "Mensaje de inicio activado.",
-            " no es un argumento válido.",
-            "No existe el fichero",
-            "failed: No existe el proceso",
-            "no current job",
-            "Idioma cambiado a ES",
-            " Permiso denegado",
-            " no se puede eliminar: Permiso denegado",
-            "No hay ventanas disponibles.",
-            "Orden no encontrada",
-            "¿Quizás quieres una interfaz más sencilla?",
-            "Los argumentos han sido deshabilitados para esta función."
+            "blog",
+            "intro.md"
         ],
-        "en":[
-            ">>Welcome, this webpage is made in a shell-like format, if you are not familiar with this environment you can click where you want to go.<br>If you want to hide this message use \"disable start\".<br>",
-            "Start message disabled.",
-            "Start message enabled.",
-            " is not a valid argument.",
-            "No such file",
-            "failed: Process doesn't exist",
-            "no current job",
-            "Language changed to EN",
-            " Permission denied",
-            " cannot be removed: Permission denied",
-            "No windows available.",
-            "Command not found",
-            "Maybe you want a more friendly UI?",
-            "Arguments have been disabled for this function."
-        ]
+        [
+            "projects",
+            "readme.md"
+        ],
+        "contact.md"
+    ],
+    "man_pages":{
+        "ls":       { "es": "ls [-l] [-R] [-a]\n  Lista el contenido del directorio actual.", "en": "ls [-l] [-R] [-a]\n  List directory contents." },
+        "cat":      { "es": "cat [archivo]\n  Muestra el contenido de un archivo.", "en": "cat [file]\n  Display file content." },
+        "cd":       { "es": "cd [directorio]\n  Cambia el directorio actual (simulado).", "en": "cd [directory]\n  Change current directory (simulated)." },
+        "tree":     { "es": "tree\n  Muestra el árbol de directorios completo.", "en": "tree\n  Display full directory tree." },
+        "clear":    { "es": "clear\n  Limpia el terminal.", "en": "clear\n  Clear terminal screen." },
+        "pwd":      { "es": "pwd\n  Muestra el directorio de trabajo actual.", "en": "pwd\n  Print working directory." },
+        "echo":     { "es": "echo [texto]\n  Imprime texto en pantalla.", "en": "echo [text]\n  Print text to screen." },
+        "date":     { "es": "date\n  Muestra la fecha y hora actual.", "en": "date\n  Display current date and time." },
+        "kill":     { "es": "kill [id]\n  Cierra la ventana con ese ID.", "en": "kill [id]\n  Close window by ID." },
+        "fg":       { "es": "fg [id|%id]\n  Maximiza la ventana con ese ID.", "en": "fg [id|%id]\n  Maximize window by ID." },
+        "bg":       { "es": "bg [id|%id]\n  Restaura la ventana desde maximizado.", "en": "bg [id|%id]\n  Restore window from maximized state." },
+        "jobs":     { "es": "jobs\n  Lista las ventanas abiertas con su ID y estado.", "en": "jobs\n  List open windows with their ID and state." },
+        "lang":     { "es": "lang [es|en]\n  Cambia el idioma de la interfaz.", "en": "lang [es|en]\n  Switch interface language." },
+        "darkmode": { "es": "darkmode\n  Alterna entre tema verde/negro y claro.", "en": "darkmode\n  Toggle between green/dark and light themes." },
+        "neofetch": { "es": "neofetch\n  Muestra información del sistema.", "en": "neofetch\n  Display system information." },
+        "history":  { "es": "history\n  Muestra el historial de comandos.", "en": "history\n  Show command history." },
+        "alias":    { "es": "alias [nombre=valor]\n  Define o lista alias de comandos.", "en": "alias [name=value]\n  Define or list command aliases." },
+        "man":      { "es": "man [comando]\n  Muestra el manual de un comando.", "en": "man [command]\n  Display manual for a command." },
+        "enable":   { "es": "enable start\n  Activa el mensaje de bienvenida.", "en": "enable start\n  Enable welcome message." },
+        "disable":  { "es": "disable start\n  Desactiva el mensaje de bienvenida.", "en": "disable start\n  Disable welcome message." },
+        "whoami":   { "es": "whoami\n  Muestra quién eres.", "en": "whoami\n  Show who you are." },
+        "rm":       { "es": "rm [archivo]\n  [Permiso denegado — entorno de solo lectura]", "en": "rm [file]\n  [Permission denied — read-only environment]" },
+        "base64":   { "es": "base64 [-d] [texto]\n  Codifica texto en Base64.\n  -d  decodificar en vez de codificar.", "en": "base64 [-d] [text]\n  Encode text to Base64.\n  -d  decode instead of encode." },
+        "color":    { "es": "color [XY]\n  Cambia los colores del terminal.\n  X = fondo, Y = texto (dígito hex).\n  Sin argumentos, restaura los colores por defecto.\n  0=Negro  1=Azul    2=Verde   3=Cian\n  4=Rojo   5=Morado  6=Amarillo 7=Gris\n  8=Gris o. 9=Az.Cl. A=Vd.Cl. B=Cn.Cl.\n  C=Rj.Cl. D=Mr.Cl. E=Am.Cl. F=Blanco", "en": "color [XY]\n  Change terminal colors.\n  X = background, Y = foreground (hex digit).\n  No arguments: restore default colors.\n  0=Black  1=Blue    2=Green  3=Aqua\n  4=Red    5=Purple  6=Yellow 7=Gray\n  8=Dk.Gray 9=Lt.Blue A=Lt.Green B=Lt.Aqua\n  C=Lt.Red D=Lt.Purple E=Lt.Yellow F=White" }
+    },
+    "cmd":{
+        "welcome":        { "es": ">>Bienvenido, esta página web está hecha emulando un terminal, si no eres familiar con este entorno puedes hacer click en los distintos directorios.<br>Si quieres ocultar este mensaje usa \"disable start\".<br>", "en": ">>Welcome, this webpage is made in a shell-like format, if you are not familiar with this environment you can click where you want to go.<br>If you want to hide this message use \"disable start\".<br>" },
+        "start_disabled": { "es": "Mensaje de inicio desactivado.",                                    "en": "Start message disabled." },
+        "start_enabled":  { "es": "Mensaje de inicio activado.",                                       "en": "Start message enabled." },
+        "invalid_arg":    { "es": " no es un argumento válido.",                                       "en": " is not a valid argument." },
+        "no_file":        { "es": "No existe el fichero",                                              "en": "No such file" },
+        "no_process":     { "es": "failed: No existe el proceso",                                      "en": "failed: Process doesn't exist" },
+        "no_job":         { "es": "ningún trabajo activo",                                             "en": "no current job" },
+        "lang_changed":   { "es": "Idioma cambiado a ES",                                              "en": "Language changed to EN" },
+        "perm_denied":    { "es": " Permiso denegado",                                                 "en": " Permission denied" },
+        "cannot_remove":  { "es": " no se puede eliminar: Permiso denegado",                          "en": " cannot be removed: Permission denied" },
+        "no_windows":     { "es": "No hay ventanas disponibles.",                                      "en": "No windows available." },
+        "cmd_not_found":  { "es": "Orden no encontrada",                                               "en": "Command not found" },
+        "simpler_ui":     { "es": "¿Quizás quieres una interfaz más sencilla?",                       "en": "Maybe you want a simpler interface?" },
+        "no_args":        { "es": "Los argumentos han sido deshabilitados para esta función.",         "en": "Arguments have been disabled for this function." },
+
+        "whoami":         { "es": "b1ch0 — Consultor de Ciberseguridad | Madrid, España",             "en": "b1ch0 — Cybersecurity Consultant | Madrid, Spain" },
+        "history_empty":  { "es": "Sin historial.",                                                    "en": "No history." },
+        "jobs_empty":     { "es": "No hay trabajos activos.",                                          "en": "No active jobs." },
+        "kill_ok":        { "es": "terminado.",                                                        "en": "terminated." },
+        "man_usage":      { "es": "¿Qué manual quieres? Uso: man [comando]",                          "en": "What manual page do you want? Usage: man [command]" },
+        "man_notfound":   { "es": "No hay entrada de manual para este comando.",                       "en": "No manual entry for this command." },
+        "alias_none":     { "es": "No hay alias definidos.",                                           "en": "No aliases defined." },
+        "alias_missing":  { "es": "no encontrado",                                                     "en": "not found" },
+        "alias_set":      { "es": "definido.",                                                         "en": "defined." },
+        "base64_usage":   { "es": "uso: base64 [-d] [texto]",                                         "en": "usage: base64 [-d] [text]" },
+        "base64_err":     { "es": "entrada inválida",                                                  "en": "invalid input" },
+        "suggestion":     { "es": "¿quisiste decir",                                                   "en": "did you mean" },
+        "env_ready":      { "es": ">> Entorno listo. Escribe <strong><span class='clickable' id='cmd_help'>help</span></strong> para ver los comandos disponibles.", "en": ">> Environment ready. Type <strong><span class='clickable' id='cmd_help'>help</span></strong> to list available commands." },
+        "color_same":     { "es": "los colores de fondo y texto no pueden ser iguales.",               "en": "background and foreground colors cannot be the same." },
+        "color_reset":    { "es": "Colores restaurados.",                                              "en": "Colors reset." },
+        "help":           { "es": "Comandos disponibles: ls, cat, tree, clear, pwd, echo, date, kill, fg, bg, jobs, lang, darkmode, color, neofetch, history, man, alias, whoami, base64, enable, disable, rm, cd, sudo, vim, uname, uptime, hack, exit<br>Usa <strong>man [comando]</strong> para más información.", "en": "Available commands: ls, cat, tree, clear, pwd, echo, date, kill, fg, bg, jobs, lang, darkmode, color, neofetch, history, man, alias, whoami, base64, enable, disable, rm, cd, sudo, vim, uname, uptime, hack, exit<br>Use <strong>man [command]</strong> for more info." },
+
+        "sudo":           { "es": "sudo: Este terminal no requiere privilegios adicionales. Ya eres b1ch0.",                                    "en": "sudo: This terminal requires no extra privileges. You are already b1ch0." },
+        "vim":            { "es": "vim: Entrando en modo normal... ¿y ahora cómo se sale de aquí?",                                            "en": "vim: Entering normal mode... and now how do you exit?" },
+        "editor":         { "es": ": Editor no disponible en este terminal.",                                                                   "en": ": Editor not available in this terminal." },
+        "exit":           { "es": "No puedes salir. Siempre estarás aquí.",                                                                    "en": "You can't leave. You will always be here." },
+        "hack":           { "es": "Iniciando secuencia de hackeo... 0x41414141... Nah, es broma. Esto es un portfolio.",                       "en": "Initiating hacking sequence... 0x41414141... Nah, just kidding. This is a portfolio." },
+
+        "neo_role":       { "es": "Rol",                  "en": "Role" },
+        "neo_job":        { "es": "Consultor de Ciberseguridad", "en": "Cybersecurity Consultant" },
+        "neo_uptime":     { "es": "Tiempo:    ",           "en": "Uptime:    " },
+        "neo_res":        { "es": "Resolución:",           "en": "Resolution:" },
+        "neo_norepos":    { "es": "no disponibles",        "en": "unavailable" },
+        "neo_lang":       { "es": "Idioma:    ",           "en": "Language:  " },
+        "neo_loc":        { "es": "Ubicación: ",           "en": "Location:  " },
+        "neo_langname":   { "es": "Español",               "en": "English" },
+        "neo_dark":       { "es": "Verde sobre negro",     "en": "Green on black" },
+        "neo_light":      { "es": "Negro sobre blanco",    "en": "Black on white" }
     },
     "files":{
-        "contact.md":"<a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a><br><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/linkedin.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a><br><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/github.svg' alt='mail'>] Github: </span>BiCH0</a>",
-        "readme_es.md":"En esta sección podrás ver todos los archivos readme de los distintos proyectos que he realizado (ADVERTENCIA!! No todos los archivos están traducidos al español), si quieres acceder a los repositorios ve a <a href='https://github.com/BiCH0'>https://github.com/BiCH0</a>",
-        "readme_en.md":"In this section you can see all my project's readmes, if you want to access the repositories you can head to <a href='https://github.com/BiCH0'>https://github.com/BiCH0</a>",
-        "programming_es.md":"Los distintos lenguajes de programación están ordenados en función de mis conocimientos sobre cada uno:<ul><li>Alto: Bash, Python, JavaScript</li><li>Medio: PowerShell, PHP, LUA, C</li><li>Bajo: Rust</li></ul>",
-        "programming_en.md":"The following programming languages are sorted based in my knowledge of each one:<ul><li>High: Bash, Python, JavaScript</li><li>Medium: PowerShell, PHP, LUA, C</li><li>Low: Rust</li></ul>",
-        "services_es.md":"He trabajado con los siguientes servicios así como con su contraparte de Windows:<br><ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Servidor Web: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Almacenamiento en red: Samba y NFS</li><li>Otros: Iptables, OpenVPN, SSH, FTP/SFTP y Fail2ban</li></ul>",
-        "services_en.md":"I have previously worked with the following services as well as their Windows counterpart:<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network shared files: Samba and NFS</li><li>Others: Iptables, OpenVPN, SSH, FTP/SFTP and Fail2ban</li></ul>"
-    },
-    "mobile":{
-        "header":{
-            "es":[
-                "Conocimientos",
-                "Proyectos",
-                "Contacto",
-                "Compañeros"
-            ],
-            "en":[
-                "Knowledge",
-                "Projects",
-                "Contact",
-                "Teammates"
-            ]
-        },
-        "sections":{   
-            "es":{
-                "whoami":"<h1>¿Quién soy?</h1>Mi nombre es Iván Martínez, actualmente tengo <span id=\"age\">20</span> años y vivo en Madrid. Me gustan los videojuegos y Linux.<img src=\"../resources/foto.png\" alt=\"me\"><h2>¿Como empecé en la informática?</h2>Desde pequeño siempre me llamaron la atención los ordenadores y este interés me llevó a una actividad extraescolar de informática que despertó el interés que me ha hecho llegar hasta aquí.<h2>¿Que he estudiado?</h2>Actualmente tengo el título de Técnico en Sistemas Microinformáticos y Redes dónde conocí al mejor profesor, <a href=\"https://juanmacr.es\">Juan Manuel</a>. Ahora estoy acabando Administración de Sistemas Informáticos en Red y me gustaría encontrar una empresa en la que seguir expandiendo mis conocimientos.",
-                "knowledge":"<h1>Conocimientos</h1> En esta sección hay una lista con los distintos servicios y lenguajes de programación que conozco.<img src=\"../resources/knowledge.png\" alt=\"code\"><h2>Servicios</h2>Junto a estos servicios también sé utilizar su contraparte en Windows.<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network shared files: Samba y NFS</li><li>Others: Iptables, OpenVPN, SSH, FTP/SFTP y Fail2ban</li></ul><h2>Lenguajes de programación</h2>Los distintos lenguajes de programación están ordenados en función de mis conocimientos sobre cada uno.<ul><li>Alto: Bash, Python, JavaScript</li><li>Medio: PowerShell, PHP, LUA, C</li><li>Bajo: Rust</li></ul>",
-                "projects":"<h1>Proyectos</h1>Aquí puedes encontrar una lista con algunos de los proyectos que he ido desarrollando a lo largo de estos años, si quieres más información de alguno de ellos, te recomiendo que vayas a <a href=\"https://github.com/BiCH0\">GitHub/BiCH0</a> para verlos.<div class=\"article-container\"><article style=\"background-image: url(../resources/thumbnails/terminal_greeter.png)\"><h3>Terminal Greeter</h3><p>Esta es una pantalla de inicio de sesión para LightDM Webkit que emula un terminal UNIX.</p></article><article style=\"background-image: url(../resources/thumbnails/arch_installer.png)\"><h3>Arch Installer</h3><p>Script de bash que facilita la instalación de Arch Linux.</p></article><article style=\"background-image: url(../resources/thumbnails/discord_bot.png)\"><h3>Discord Bot</h3><p>Un bot hecho en Python capaz de interactuar con discord capaz de recordar cumpleaños, asignar roles y mucho más!!</p></article></div>",
-                "contact":"<h1>Contacto</h1>Aquí tienes distintas formas de contactar conmigo:<ul><li><a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a></li><li><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/linkedin.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a></li><li><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/github.svg' alt='mail'>] GitHub: </span>BiCH0</a></li></ul>",
-                "teammates":"<h1>Compañeros</h1><ul><li><a href=\"https://bulgaro.confugiradores.es\"><span>Daniel Milenov</span> (@Bulgaro)</a></li><li><a href=\"https://byeejasonn.confugiradores.es\"><span>Jason Londoño</span> (@Byeejasonn)</a></li><li><a href=\"https://fateworks.confugiradores.es\"><span>Miguel León</span> (@FateWorks)</a></li><li><a href=\"https://icutum.confugiradores.es\"><span>Mario Sánchez</span> (@Icutum)</a></li><li><a href=\"https://nrtheriam.es\"><span>Alberto Nieto</span> (@Nrtheriam)</a></li><li><a href=\"https://carlos.confugiradores.es\"><span>Carlos Amicarelli</span> (@Odogmar)</a></li><li><a href=\"https://theblastsfx.confugiradores.es\"><span>Daniel Casado</span> (@TheBlastSFX)</a></li></ul>"
-            },
-            "en":{
-                "whoami":"<h1>¿Who am I?</h1>My name is Iván Martinez, I’m <span id=\"age\">20</span> years old and I’m currently living in Madrid. I like playing videogames and Linux.<img src=\"../resources/foto.png\" alt=\"me\"><h2>¿How did I start in IT?</h2>Since I was younger, computers always amazed me and that curiosity led me to joining an extracurricular subject of IT which really made me fell in love with it.<h2>¿What have I studied?</h2>At the moment I have a technical degree in Micro informatic Systems and Networks where I met my all-time favorite teacher <a href=\"https://juanmacr.es\">Juan Manuel</a>. Currently I'm finishing a superior technical degree in ASIR, I would like to find a company in which I can keep studying and improving my knowledge.",
-                "knowledge":"<h1>Knowledge</h1> In this section there is a list with some of the services and programming languages that I use/know.<img src=\"../resources/knowledge.png\" alt=\"code\"><h2>Services</h2>I have previously worked with the following services as well as their Windows counterpart.<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network shared files: Samba y NFS</li><li>Others: Iptables, OpenVPN, SSH, FTP/SFTP y Fail2ban</li></ul><h2>Programming languages</h2>The following programming languages are sorted based in my knowledge of each one.<ul><li>High: Bash, Python, JavaScript</li><li>Medium: PowerShell, PHP, LUA, C</li><li>Low: Rust</li></ul>",
-                "projects":"<h1>Projects</h1>Here you can find a list with some of the projects that I have been developing in the last few years, if you want to know more about any of them I recommend you go to <a href=\"https://github.com/BiCH0\">GitHub/BiCH0</a>.<div class=\"article-container\"><article style=\"background-image: url(../resources/thumbnails/terminal_greeter.png)\"><h3>Terminal Greeter</h3><p>This is a lightdm webkit based greeter that emulates a UNIX terminal.</p></article><article style=\"background-image: url(../resources/thumbnails/arch_installer.png)\"><h3>Arch Installer</h3><p>Bash script to make Arch Linux installation a bit easier.</p></article><article style=\"background-image: url(../resources/thumbnails/discord_bot.png)\"><h3>Discord Bot</h3><p>Python bot that interacts with Discord, its capable of remember birthdays, set roles on join and much more!!</p></article></div>",
-                "contact":"<h1>Contact</h1>Here you have some ways to contact me:<ul><li><a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a></li><li><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/linkedin.svg' alt='mail'>] LinkedIn: </span>Iván Martínez Alcoceba</a></li><li><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1 em' src='../resources/svg/github.svg' alt='mail'>] GitHub: </span>BiCH0</a></li></ul>",
-                "teammates":"<h1>Teammates</h1><ul><li><a href=\"https://bulgaro.confugiradores.es\"><span>Daniel Milenov</span> (@Bulgaro)</a></li><li><a href=\"https://byeejasonn.confugiradores.es\"><span>Jason Londoño</span> (@Byeejasonn)</a></li><li><a href=\"https://fateworks.confugiradores.es\"><span>Miguel León</span> (@FateWorks)</a></li><li><a href=\"https://icutum.confugiradores.es\"><span>Mario Sánchez</span> (@Icutum)</a></li><li><a href=\"https://nrtheriam.es\"><span>Alberto Nieto</span> (@Nrtheriam)</a></li><li><a href=\"https://carlos.confugiradores.es\"><span>Carlos Amicarelli</span> (@Odogmar)</a></li><li><a href=\"https://theblastsfx.confugiradores.es\"><span>Daniel Casado</span> (@TheBlastSFX)</a></li></ul>"
-            }
-        }
+        "contact.md":"<a href='mailto:ivan@confugiradores.es' target='_blank' rel='noopener noreferrer'><span>[<img height='1em' src='resources/svg/mail.svg' alt='mail'>] Mail: </span>ivan@confugiradores.es</a><br><a href='https://www.linkedin.com/in/iv%C3%A1n-mart%C3%ADnez-alcoceba-492547200' target='_blank' rel='noopener noreferrer'><span>[<img height='1em' src='resources/svg/linkedin.svg' alt='linkedin'>] LinkedIn: </span>Iván Martínez Alcoceba</a><br><a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'><span>[<img height='1em' src='resources/svg/github.svg' alt='github'>] Github: </span>BiCH0</a>",
+        "intro_es.md":"Writeups de CTF, notas técnicas y artículos sobre ciberseguridad.<br>Usa <strong>ls blog/</strong> para ver todos los artículos o haz click en los archivos del árbol para leerlos.",
+        "intro_en.md":"CTF writeups, technical notes and cybersecurity articles.<br>Use <strong>ls blog/</strong> to list all posts or click files in the tree to read them.",
+        "readme_es.md":"Repositorios de GitHub cargados dinámicamente desde la API. Haz click en cualquier <span style='opacity:.7'>.git</span> para ver sus detalles.<br>Acceso directo: <a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'>github.com/BiCH0</a>",
+        "readme_en.md":"GitHub repositories loaded dynamically from the API. Click any <span style='opacity:.7'>.git</span> entry to view details.<br>Direct access: <a href='https://github.com/BiCH0' target='_blank' rel='noopener noreferrer'>github.com/BiCH0</a>",
+        "programming_es.md":"Lenguajes de programación ordenados por nivel de uso y dominio:<ul><li><strong>Principal:</strong> Rust</li><li><strong>Alto:</strong> Python, Bash, JavaScript</li><li><strong>Medio:</strong> PowerShell, PHP, LUA, C</li></ul>",
+        "programming_en.md":"Programming languages sorted by usage and proficiency:<ul><li><strong>Main:</strong> Rust</li><li><strong>High:</strong> Python, Bash, JavaScript</li><li><strong>Medium:</strong> PowerShell, PHP, LUA, C</li></ul>",
+        "services_es.md":"Servicios con los que he trabajado (y su contraparte en Windows):<br><ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Servidor Web: Apache, Nginx</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Almacenamiento en red: Samba y NFS</li><li>Seguridad: Iptables, Fail2ban, OpenVPN, Suricata, Snort</li><li>Otros: SSH, FTP/SFTP, Wireguard</li></ul>",
+        "services_en.md":"Services I have worked with (and their Windows counterparts):<ul><li>DNS: Bind9</li><li>DHCP: Isc-dhcp</li><li>Web Server: Apache, Nginx</li><li>SMTP: Postfix</li><li>IMAP/POP3: Dovecot</li><li>Network storage: Samba, NFS</li><li>Security: Iptables, Fail2ban, OpenVPN, Suricata, Snort</li><li>Others: SSH, FTP/SFTP, Wireguard</li></ul>"
     }
 }
